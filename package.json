@@ -1,0 +1,19 @@
+{
+  "name": "nservices",
+  "version": "0.0.1",
+  "description": "Library for common microservices functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ndustrialio",
+    "microservices"
+  ],
+  "author": "ndustrial.io <dev@ndustrial.io> (http://ndustrial.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.65.0",
+    "underscore": "^1.8.3"
+  }
+}
