@@ -56,13 +56,13 @@ var Errors = function() {
 
     Error.call(this);
   };
-  
+
   var interservice_error = function(message) {
-      this.code = 503;
-      this.message = message;
-      
-      Error.call(this);
-  }
+    this.code = 503;
+    this.message = message;
+
+    Error.call(this);
+  };
 
   util.inherits(not_found, Error);
   util.inherits(no_content, Error);

@@ -1,6 +1,6 @@
 var AuthCommunicator = require('./AuthCommunicator');
 
 module.exports = {
-    AuthCommunicator: AuthCommunicator,
-    Notifier: require('./Notifier')
+  AuthCommunicator: AuthCommunicator,
+  Notifier: require('./Notifier')
 };
