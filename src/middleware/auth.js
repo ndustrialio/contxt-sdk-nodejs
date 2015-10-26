@@ -1,6 +1,6 @@
-var request = require('request');
-var errors = require('./errors');
-var _ = require('underscore');
+var request = require('request'),
+  errors = require('./../errors'),
+  _ = require('underscore');
 
 var Auth = function(environment, versionedUrl) {
   var authUrl = versionedUrl;
@@ -38,6 +38,7 @@ var Auth = function(environment, versionedUrl) {
         return next(result);
       }
 
+      // TODO: set the whole user object on the req object
       req.user_id = result.id;
       req.is_superuser = result.is_superuser;
       req.user_organization_id = result.organization_id;
@@ -46,18 +47,8 @@ var Auth = function(environment, versionedUrl) {
     });
   };
 
-  var endRequest = function(req, res, next) {
-    if (_.has(res, 'data')) {
-      res.send(res.data);
-    } else {
-      res.end();
-    }
-  };
-
-
   return {
-    authorize: authorize,
-    endRequest: endRequest
+    authorize: authorize
   };
 };
 
