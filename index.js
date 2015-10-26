@@ -1,6 +1,3 @@
-var AuthCommunicator = require('./AuthCommunicator');
-
-module.exports = {
-  AuthCommunicator: AuthCommunicator,
-  Notifier: require('./Notifier')
-};
+module.exports.errors = require('./errors');
+module.exports.middleware = require('./middleware');
+module.exports.Notifier = require('./notifier');
