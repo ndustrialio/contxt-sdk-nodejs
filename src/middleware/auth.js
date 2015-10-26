@@ -1,6 +1,6 @@
 var request = require('request'),
-  errors = require('./../errors'),
-  _ = require('underscore');
+  _ = require('underscore'),
+  errors = require('./../errors');
 
 var Auth = function(environment, versionedUrl) {
   var authUrl = versionedUrl;
