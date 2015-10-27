@@ -1,13 +1,12 @@
-var errors = require('./errors');
+var config = require('./config');
+  errors = require('./errors');
 
-var Notifier = function(environment, exchangeName, amqpConnection) {
-  var conn = amqpConnection;
-  var env = environment;
-  var exchange;
+var Notifier = function(exchangeName, amqpConnection) {
+  var env = config.environment,
+    exchange;
 
-  conn.on('ready', function() {
-    console.log("rabbit ready");
-    exchange = conn.exchange(env + '.' + exchangeName, {
+  amqpConnection.on('ready', function() {
+    exchange = amqpConnection.exchange(env + '.' + exchangeName, {
       type: 'topic',
       durable: true,
       autoDelete: false
@@ -19,6 +18,7 @@ var Notifier = function(environment, exchangeName, amqpConnection) {
   var notify = function(routing_key) {
     return function(req, res, next) {
       exchange.publish(env + '.' + routing_key, res.data);
+
       next();
     };
   };

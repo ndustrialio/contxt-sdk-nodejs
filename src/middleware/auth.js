@@ -1,11 +1,9 @@
 var request = require('request'),
   _ = require('underscore'),
-  errors = require('./../errors');
+  errors = require('./../errors'),
+  config = require('./../config');
 
-var Auth = function(environment, versionedUrl) {
-  var authUrl = versionedUrl;
-  var env = environment;
-
+var Auth = function(versionedUrl) {
   var authorize = function(req, res, next) {
     var bearer = req.header('Authorization'),
       token;
@@ -21,7 +19,7 @@ var Auth = function(environment, versionedUrl) {
     req.token = token;
 
     request({
-      url: authUrl + '/users/current',
+      url: versionedUrl + '/users/current',
       headers: {
         'Authorization': bearer
       }
