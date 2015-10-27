@@ -28,7 +28,8 @@ var Sdk = function(options) {
   return {
     errors: errors,
     middleware: middleware,
-    Notifier: Notifier
+    Notifier: Notifier,
+    Listener: Listener
   };
 };
 
