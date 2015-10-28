@@ -20,9 +20,15 @@ var Listener = function(queue_name) {
     queue.bind(environment + '.' + exchange_name, environment + '.' + routing_key);
 
     queue.subscribe(function(message, headers, delivery_info, message_object) {
-      var data  = JSON.parse(message.data.toString());
+      var data  = JSON.parse(message.data.toString()),
+        short_routing_key = delivery_info.routingKey;
 
-      callback(delivery_info.routingKey, data);
+      // Return the routing key without the environment for simplicity
+      short_routing_key = short_routing_key.split('.');
+      short_routing_key.shift();
+      short_routing_key = short_routing_key.join('.');
+
+      callback(short_routing_key, data);
     });
   };
 
