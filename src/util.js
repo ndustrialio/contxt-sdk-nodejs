@@ -113,16 +113,20 @@ var Util = function() {
   };
 
   var validate_part = function(part) {
-    if (_.indexOf(supportedFieldOperators, part.operator) == -1) {
+    var supported_field_operators = ['$eq', '$gt', '$gte', '$lt', '$lte', '$ne', '$or', '$and', '$not', '$nor'],
+      supported_logical_operators = ['$or', '$and', '$not', '$nor'],
+      supported_field_prefixes = ['output_field_id'];
+
+    if (_.indexOf(supported_field_operators, part.operator) == -1) {
       return 'Invalid operator: ' + part.operator;
     }
 
     // only if there are no subqueries in this part will we check the field name
     if (part.parts.length === 0) {
-      var fieldName = part.field.split("::")[0];
+      var field_name = part.field.split('::')[0];
 
-      if (_.indexOf(supportedFieldPrefixes, fieldName) == -1) {
-        return 'Invalid prefix: ' + fieldName;
+      if (_.indexOf(supported_field_prefixes, field_name) == -1) {
+        return 'Invalid prefix: ' + field_name;
       }
     }
 
