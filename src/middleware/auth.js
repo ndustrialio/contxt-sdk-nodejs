@@ -2,7 +2,7 @@ var request = require('request');
 var errors = require('./errors');
 var _ = require('underscore');
 
-var AuthCommunicator = function(environment, versionedUrl) {
+var Auth = function(environment, versionedUrl) {
   var authUrl = versionedUrl;
   var env = environment;
 
@@ -61,4 +61,4 @@ var AuthCommunicator = function(environment, versionedUrl) {
   };
 };
 
-module.exports = AuthCommunicator;
+module.exports = Auth;
