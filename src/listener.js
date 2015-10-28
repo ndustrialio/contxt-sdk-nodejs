@@ -1,5 +1,5 @@
-var config = require('./config');
-errors = require('./errors');
+var config = require('./config'),
+  errors = require('./errors');
 
 var Listener = function(queue_name) {
   var _config = config.get(),
@@ -20,7 +20,7 @@ var Listener = function(queue_name) {
     queue.bind(environment + '.' + exchange_name, environment + '.' + routing_key);
 
     queue.subscribe(function(message, headers, delivery_info, message_object) {
-      var data  = JSON.parse(message.data.toString()),
+      var data = JSON.parse(message.data.toString()),
         short_routing_key = delivery_info.routingKey;
 
       // Return the routing key without the environment for simplicity
@@ -33,7 +33,7 @@ var Listener = function(queue_name) {
   };
 
   return {
-    listener: listener
+    listen: listen
   };
 };
 
