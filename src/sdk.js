@@ -3,7 +3,6 @@ var _ = require('underscore'),
   config = require('./config'),
   errors = require('./errors'),
   middleware = require('./middleware'),
-  Notifier = require('./notifier'),
   Listener = require('./listener');
 
 var Sdk = function(options) {
@@ -28,7 +27,6 @@ var Sdk = function(options) {
 
   return {
     middleware: middleware,
-    Notifier: Notifier,
     Listener: Listener
   };
 };
