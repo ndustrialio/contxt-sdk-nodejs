@@ -1,7 +1,6 @@
 var request = require('request'),
   _ = require('underscore'),
-  errors = require('./../errors'),
-  config = require('./../config');
+  errors = require('./../errors');
 
 var Auth = function(versionedUrl) {
   var authorize = function(req, res, next) {
@@ -12,8 +11,11 @@ var Auth = function(versionedUrl) {
       return next(new errors.not_authorised('Access token not provided'));
     }
 
-    // TODO: Throw error if the token string is invalid
-    token = bearer.split(' ')[1];
+    token = bearer.match(/[a-z0-9]{40}/g);
+
+    if (token === null) {
+      return next(new errors.validation_error('Access token is malformed'));
+    }
 
     // Store the token on the request object to be used further along the line
     req.token = token;
@@ -36,10 +38,7 @@ var Auth = function(versionedUrl) {
         return next(result);
       }
 
-      // TODO: set the whole user object on the req object
-      req.user_id = result.id;
-      req.is_superuser = result.is_superuser;
-      req.user_organization_id = result.organization_id;
+      req.user = result;
 
       next();
     });
