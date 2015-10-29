@@ -1,5 +1,4 @@
-var config = require('./config'),
-  errors = require('./errors');
+var config = require('./config');
 
 var Listener = function(queue_name) {
   var _config = config.get(),
