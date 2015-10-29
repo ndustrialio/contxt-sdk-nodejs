@@ -28,6 +28,13 @@ var Request = function() {
             case 'false':
               items[key] = false;
               break;
+
+            default:
+              var number_value = parseFloat(value);
+
+              if (number_value) {
+                items[key] = number_value;
+              }
           }
         }
       });
@@ -59,7 +66,7 @@ var Request = function() {
           if (field_key === field_to_validate_key) {
             found = true;
 
-            if (typeof field_value == field_to_validate_value_defaulted.type) {
+            if (typeof field_value === field_to_validate_value_defaulted.type) {
               valid = true;
             }
           }
