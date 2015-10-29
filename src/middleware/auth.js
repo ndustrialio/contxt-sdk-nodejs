@@ -13,7 +13,7 @@ var Auth = function(versionedUrl) {
 
     token = bearer.match(/[a-z0-9]{40}/g);
 
-    if (token === null) {
+    if (!token) {
       return next(new errors.validation_error('Access token is malformed'));
     }
 

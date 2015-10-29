@@ -149,8 +149,6 @@ var Request = function() {
       return next(new errors.validation_error('Invalid parameters: ' + invalid_params.join()));
     }
 
-    req.params = params;
-
     next();
   };
 
