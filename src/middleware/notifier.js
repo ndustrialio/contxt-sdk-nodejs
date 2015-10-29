@@ -18,6 +18,9 @@ var Notifier = function(exchange_name) {
 
   var notify = function(routing_key) {
     return function(req, res, next) {
+      console.log('Published message', res.data);
+      console.log('on exchange', exchange.name, 'with routing key', environment + '.' + routing_key);
+
       exchange.publish(environment + '.' + routing_key, res.data);
 
       next();
