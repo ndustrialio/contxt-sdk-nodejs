@@ -1,4 +1,5 @@
-var config = require('./../config');
+var _ = require('underscore'),
+  config = require('./../config');
 
 var Notifier = function(exchange_name) {
   var _config = config.get(),
@@ -18,6 +19,10 @@ var Notifier = function(exchange_name) {
 
   var notify = function(routing_key) {
     return function(req, res, next) {
+      if (!_.has(req, 'data')) {
+        req.data = {};
+      }
+
       console.log('Published message', res.data);
       console.log('on exchange', exchange.name, 'with routing key', environment + '.' + routing_key);
 
