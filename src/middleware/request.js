@@ -78,83 +78,80 @@ var Request = function() {
     };
   };
 
-  var validate_params = function() {
+  var validate_params = function(req, res, next) {
     // TODO: Get params whitelist from the config
+    var params = _.extend(req.query, req.params),
+      params_whitelist = [
+        'id',
+        'organization_id',
+        'facility_id',
+        'building_id',
+        'feed_id',
+        'key',
+        'output_id',
+        'alert_id',
+        'blast_cell_id',
+        'is_active',
+        'user_id',
+        'email',
+        'start_node_id',
+        'access_id',
+        'type',
+        'dateStart',
+        'dateEnd',
+        'timeStart',
+        'timeEnd',
+        'hourStart',
+        'hourEnd',
+        'location_id',
+        'window',
+        'category',
+        'fields',
+        'field_human_name',
+        'field_id',
+        'utility_account_id',
+        'utility_meter_id',
+        'meter_statement_id',
+        'year',
+        'month',
+        'metric_id',
+        'metric_name',
+        'units',
+        'module_id',
+        'metric_suffix',
+        'view_id',
+        'layout_id',
+        'slug',
+        'rate_schedule_id',
+        'rate_period_id',
+        'rate_season_id',
+        'rate_season_period_id',
+        'numNext',
+        'statement_year',
+        'statement_month',
+        'storm_topology_uuid',
+        'forward_id',
+        'geometry_id',
+        'area_id',
+        'environment',
+        'configuration_id',
+        'value_id',
+        'output_state_id',
+        'output_type_id',
+        'group_id',
+        'group_name',
+        'worker_uuid',
+        'is_default'
+      ],
+      invalid_params = _.difference(_.keys(params), params_whitelist);
 
-    return function(req, res, next) {
-      var params = _.extend(req.query, req.params),
-        params_whitelist = [
-          'id',
-          'organization_id',
-          'facility_id',
-          'building_id',
-          'feed_id',
-          'key',
-          'output_id',
-          'alert_id',
-          'blast_cell_id',
-          'is_active',
-          'user_id',
-          'email',
-          'start_node_id',
-          'access_id',
-          'type',
-          'dateStart',
-          'dateEnd',
-          'timeStart',
-          'timeEnd',
-          'hourStart',
-          'hourEnd',
-          'location_id',
-          'window',
-          'category',
-          'fields',
-          'field_human_name',
-          'field_id',
-          'utility_account_id',
-          'utility_meter_id',
-          'meter_statement_id',
-          'year',
-          'month',
-          'metric_id',
-          'metric_name',
-          'units',
-          'module_id',
-          'metric_suffix',
-          'view_id',
-          'layout_id',
-          'slug',
-          'rate_schedule_id',
-          'rate_period_id',
-          'rate_season_id',
-          'rate_season_period_id',
-          'numNext',
-          'statement_year',
-          'statement_month',
-          'storm_topology_uuid',
-          'forward_id',
-          'geometry_id',
-          'area_id',
-          'environment',
-          'configuration_id',
-          'value_id',
-          'output_state_id',
-          'output_type_id',
-          'group_id',
-          'group_name',
-          'worker_uuid',
-          'is_default'
-        ],
-        invalid_params = _.difference(_.keys(params), params_whitelist);
+    if (invalid_params.length > 0) {
+      return next(new errors.validation_error('Invalid parameters: ' + invalid_params.join()));
+    }
 
-      if (invalid_params.length > 0) {
-        return next(new errors.validation_error('Invalid parameters: ' + invalid_params.join()));
-      }
+    req.params = params;
 
-      req.params = params;
-
-      next();
-    };
+    next();
   };
 
   return {
