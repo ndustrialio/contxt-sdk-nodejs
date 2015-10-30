@@ -2,7 +2,7 @@ var request = require('request'),
   _ = require('underscore'),
   errors = require('./../errors');
 
-var Auth = function(auth_service_url) {
+var Auth = function(options) {
   var authorize = function(req, res, next) {
     var bearer = req.header('Authorization'),
       token;
@@ -21,7 +21,7 @@ var Auth = function(auth_service_url) {
     req.token = token;
 
     request({
-      url: auth_service_url + '/users/current',
+      url: options.auth_service_url + '/users/current',
       headers: {
         'Authorization': bearer
       }

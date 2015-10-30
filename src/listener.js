@@ -1,13 +1,13 @@
 var config = require('./config');
 
-var Listener = function(queue_name) {
+var Listener = function(options) {
   var _config = config.get(),
     environment = _config.environment,
     rabbitmq_connection = _config.rabbitmq_connection,
     queue;
 
   rabbitmq_connection.on('ready', function() {
-    queue = rabbitmq_connection.queue(environment + '.' + queue_name, {
+    queue = rabbitmq_connection.queue(environment + '.' + options.queue_name, {
       durable: true,
       autoDelete: false
     }, function(queue) {

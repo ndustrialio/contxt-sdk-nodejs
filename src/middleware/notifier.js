@@ -1,14 +1,14 @@
 var _ = require('underscore'),
   config = require('./../config');
 
-var Notifier = function(exchange_name) {
+var Notifier = function(options) {
   var _config = config.get(),
     environment = _config.environment,
     rabbitmq_connection = _config.rabbitmq_connection,
     exchange;
 
   rabbitmq_connection.on('ready', function() {
-    exchange = rabbitmq_connection.exchange(environment + '.' + exchange_name, {
+    exchange = rabbitmq_connection.exchange(environment + '.' + options.exchange_name, {
       type: 'topic',
       durable: true,
       autoDelete: false
