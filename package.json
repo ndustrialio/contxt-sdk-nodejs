@@ -19,6 +19,7 @@
   "dependencies": {
     "request": "^2.65.0",
     "underscore": "^1.8.3",
-    "amqp": "^0.2.4"
+    "amqp": "^0.2.4",
+    "qs": "^5.2.0"
   }
 }
