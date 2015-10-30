@@ -1,10 +1,14 @@
+var config = require('./../config');
+
 var Errors = function() {
+  var _config = config.get();
+
   var handler = function(err, req, res, next) {
     var error_code = err.code || 500,
       error_message = err.message || 'Internal server error',
-      config = {env: 'development'}; // TODO: get global env variables
+      environment = _config.environment;
 
-    switch (config.env) {
+    switch (environment) {
       case 'production':
         console.log(req.method, req.url, err);
         break;

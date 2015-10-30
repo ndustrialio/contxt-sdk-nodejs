@@ -1,3 +1,4 @@
 module.exports.errors = require('./errors');
-module.exports.middleware = require('./middleware');
-module.exports.Notifier = require('./notifier');
+module.exports.util = require('./util');
+module.exports.Request = require('./request');
+module.exports.Sdk = require('./sdk');
