@@ -2,7 +2,7 @@ var request = require('request'),
   _ = require('underscore'),
   errors = require('./../errors');
 
-var Auth = function(versionedUrl) {
+var Auth = function(auth_service_url) {
   var authorize = function(req, res, next) {
     var bearer = req.header('Authorization'),
       token;
@@ -21,14 +21,14 @@ var Auth = function(versionedUrl) {
     req.token = token;
 
     request({
-      url: versionedUrl + '/users/current',
+      url: auth_service_url + '/users/current',
       headers: {
         'Authorization': bearer
       }
     }, function(error, response, body) {
 
       if (error) {
-        return next(new errors.interservice_error("Unable to authorise request. Authentication service unavailable"));
+        return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
       }
 
       var result = JSON.parse(body);
