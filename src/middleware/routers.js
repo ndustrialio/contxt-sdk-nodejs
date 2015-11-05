@@ -1,7 +1,7 @@
 var _ = require('underscore'),
   errors = require('./../errors');
 
-var Router = function() {
+var Routers = function() {
   var end = function(req, res, next) {
     if (_.has(res, 'data')) {
       res.send(res.data);
@@ -51,4 +51,4 @@ var Router = function() {
   };
 };
 
-module.exports = Router;
+module.exports = Routers;
