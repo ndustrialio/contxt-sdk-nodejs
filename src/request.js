@@ -1,26 +1,27 @@
 var _ = require('underscore'),
   qs = require('qs'),
-  Request = require('request'),
+  _Request = require('request'),
   errors = require('./errors');
 
-var Request = function(options) {
-  var _options = _.defaults(options, {});
+var Request = function(default_options) {
+  var _options = _.defaults(default_options, {});
 
-  var request = Request.defaults({
+  var request = _Request.defaults({
     headers: {
       something: 'something'
     }
   });
 
-  var _prepare_url = function(url, req) {
-    var _url = url;
+  var _prepare_url = function(options) {
+    // TODO: Check for the URL to be set on options
+    var _url = options.url;
 
     if (_.has(_options, 'base_url')) {
       _url = base_url + url;
     }
 
-    if (_.has(req, 'query')) {
-      var query = qs.stringify(req.query);
+    if (_.has(options, 'query')) {
+      var query = qs.stringify(options.query);
 
       _url += '?' + query;
     }
@@ -28,8 +29,8 @@ var Request = function(options) {
     return _url;
   };
 
-  var get = function(url, req, callback) {
-    var _url = _prepare_url(url, req);
+  var get = function(options, callback) {
+    var _url = _prepare_url(options);
 
     request.get({
       url: _url
@@ -43,15 +44,15 @@ var Request = function(options) {
       }
 
       callback(null, JSON.parse(body));
-    }).auth(null, null, true, req.token);
+    }).auth(null, null, true, options.token);
   };
 
-  var post = function(url, req, callback) {
-    var _url = _prepare_url(url, req);
+  var post = function(options, callback) {
+    var _url = _prepare_url(options);
 
     request.post({
       url: _url,
-      formData: req.body
+      formData: options.data
     }, function(error, response, body) {
       if (error) {
         return callback(error);
@@ -62,15 +63,15 @@ var Request = function(options) {
       }
 
       callback(null, JSON.parse(body));
-    }).auth(null, null, true, token);
+    }).auth(null, null, true, options.token);
   };
 
-  var put = function(url, req, callback) {
-    var _url = _prepare_url(url, req);
+  var put = function(options, callback) {
+    var _url = _prepare_url(options);
 
     request.put({
       url: _url,
-      formData: req.body
+      formData: options.data
     }, function(error, response, body) {
       if (error) {
         return callback(error);
@@ -81,11 +82,11 @@ var Request = function(options) {
       }
 
       callback(null, JSON.parse(body));
-    }).auth(null, null, true, req.token);
+    }).auth(null, null, true, options.token);
   };
 
-  var del = function(url, req, callback) {
-    var _url = _prepare_url(url, req);
+  var del = function(options, callback) {
+    var _url = _prepare_url(options);
 
     request.del({
       url: _url
@@ -99,7 +100,7 @@ var Request = function(options) {
       }
 
       callback();
-    }).auth(null, null, true, req.token);
+    }).auth(null, null, true, options.token);
   };
 
   return {
