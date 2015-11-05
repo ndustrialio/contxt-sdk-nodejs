@@ -21,7 +21,7 @@ var Auth = function(options) {
     req.token = token;
 
     request({
-      url: options.auth_service_url + '/users/current',
+      url: options.service_url + '/users/current',
       headers: {
         'Authorization': bearer
       }
