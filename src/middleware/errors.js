@@ -25,7 +25,10 @@ var Errors = function() {
         break;
     }
 
-    res.status(error_code).send(message);
+    res.status(error_code).send({
+      code: error_code,
+      message: error_message
+    });
   };
 
   return {
