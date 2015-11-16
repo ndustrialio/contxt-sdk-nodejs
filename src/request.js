@@ -1,10 +1,13 @@
 var _ = require('underscore'),
   qs = require('qs'),
+  async = require('async'),
   _Request = require('request'),
   errors = require('./errors');
 
 var Request = function(default_options) {
-  var _options = _.defaults(default_options, {});
+  var _options = _.defaults(default_options, {}),
+    RETRY_TIMES = 3,
+    RETRY_INTERVAL = 200;
 
   var request = _Request.defaults({
     headers: {
@@ -32,75 +35,131 @@ var Request = function(default_options) {
   var get = function(options, callback) {
     var _url = _prepare_url(options);
 
-    request.get({
-      url: _url
-    }, function(error, response, body) {
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      request.get({
+        url: _url
+      }, function(error, response, body) {
+        if (error) {
+          console.log('Failed calling (', url, '). Retrying...');
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      }).auth(null, null, true, options.token);
+    }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (response.statusCode !== 200) {
-        return callback(new errors.interservice_error('Unable to GET ' + _url + ' - status code: ' + response.statusCode));
+      if (result.response.statusCode !== 200) {
+        return callback(new errors.interservice_error('Unable to GET ' + _url + ' - status code: ' + result.response.statusCode));
       }
 
-      callback(null, JSON.parse(body));
-    }).auth(null, null, true, options.token);
+      callback(null, JSON.parse(result.body));
+    });
   };
 
   var post = function(options, callback) {
     var _url = _prepare_url(options);
 
-    request.post({
-      url: _url,
-      formData: options.data
-    }, function(error, response, body) {
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      request.post({
+        url: _url,
+        formData: options.data
+      }, function(error, response, body) {
+        if (error) {
+          console.log('Failed calling (', url, '). Retrying...');
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      }).auth(null, null, true, options.token);
+    }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (response.statusCode !== 201) {
-        return callback(new errors.interservice_error('Unable to POST ' + _url + ' - status code: ' + response.statusCode));
+      if (result.response.statusCode !== 201) {
+        return callback(new errors.interservice_error('Unable to POST ' + _url + ' - status code: ' + result.response.statusCode));
       }
 
-      callback(null, JSON.parse(body));
-    }).auth(null, null, true, options.token);
+      callback(null, JSON.parse(result.body));
+    });
   };
 
   var put = function(options, callback) {
     var _url = _prepare_url(options);
 
-    request.put({
-      url: _url,
-      formData: options.data
-    }, function(error, response, body) {
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      request.put({
+        url: _url,
+        formData: options.data
+      }, function(error, response, body) {
+        if (error) {
+          console.log('Failed calling (', url, '). Retrying...');
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      }).auth(null, null, true, options.token);
+    }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (response.statusCode !== 204) {
-        return callback(new errors.interservice_error('Unable to PUT ' + _url + ' - status code: ' + response.statusCode));
+      if (result.response.statusCode !== 204) {
+        return callback(new errors.interservice_error('Unable to PUT ' + _url + ' - status code: ' + result.response.statusCode));
       }
 
-      callback(null, JSON.parse(body));
-    }).auth(null, null, true, options.token);
+      callback(null, JSON.parse(result.body));
+    });
   };
 
   var del = function(options, callback) {
     var _url = _prepare_url(options);
 
-    request.del({
-      url: _url
-    }, function(error, response, body) {
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      request.del({
+        url: _url
+      }, function(error, response, body) {
+        if (error) {
+          console.log('Failed calling (', url, '). Retrying...');
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      }).auth(null, null, true, options.token);
+    }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (response.statusCode !== 204) {
-        return callback(new errors.interservice_error('Unable to DELETE ' + _url + ' - status code: ' + response.statusCode));
+      if (result.response.statusCode !== 204) {
+        return callback(new errors.interservice_error('Unable to DELETE ' + _url + ' - status code: ' + result.response.statusCode));
       }
 
-      callback();
-    }).auth(null, null, true, options.token);
+      callback(null, JSON.parse(result.body));
+    });
   };
 
   return {
