@@ -43,7 +43,7 @@ var Request = function(default_options) {
         url: _url
       }, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', url, '). Retrying...');
+          console.log('Failed calling (', _url, '). Retrying...');
         }
 
         cb(error, {
@@ -76,7 +76,7 @@ var Request = function(default_options) {
         formData: options.data
       }, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', url, '). Retrying...');
+          console.log('Failed calling (', _url, '). Retrying...');
         }
 
         cb(error, {
@@ -109,7 +109,7 @@ var Request = function(default_options) {
         formData: options.data
       }, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', url, '). Retrying...');
+          console.log('Failed calling (', _url, '). Retrying...');
         }
 
         cb(error, {
@@ -141,7 +141,7 @@ var Request = function(default_options) {
         url: _url
       }, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', url, '). Retrying...');
+          console.log('Failed calling (', _url, '). Retrying...');
         }
 
         cb(error, {
