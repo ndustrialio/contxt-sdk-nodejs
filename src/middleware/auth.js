@@ -30,7 +30,15 @@ var Auth = function(options) {
       if (error) {
         return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
       }
-
+      
+      if (response.statusCode != 200) {
+          if (response.statusCode == 502) {
+              return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
+          } else {
+              return next(new errors.not_authorised(body));
+          }
+      }
+      
       var result = JSON.parse(body);
 
       // TODO: Better check for if the response body is an user object or an auth error
