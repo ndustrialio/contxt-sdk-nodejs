@@ -32,32 +32,55 @@ var Request = function(default_options) {
     return _url;
   };
 
-  var get = function(options, callback) {
+  var _prepare_params = function(options) {
     var _url = _prepare_url(options);
+
+    var params = {
+      url: _url
+    };
+
+    if (_.has(options, 'data')) {
+      _.extend(params, {
+        form: options.data
+      });
+    }
+
+    if (_.has(options, 'token')) {
+      _.extend(params, {
+        auth: {
+          bearer: options.token
+        }
+      });
+    }
+
+    return params;
+  };
+
+  var get = function(options, callback) {
+    var params = _prepare_params(options);
 
     async.retry({
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      request.get({
-        url: _url
-      }, function(error, response, body) {
+      request.get(params, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', _url, '). Retrying...');
+          console.log('Failed calling (', params.url, '). Retrying...');
         }
 
         cb(error, {
           response: response,
           body: body
         });
-      }).auth(null, null, true, options.token);
+      });
     }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
       if (result.response.statusCode !== 200) {
-        return callback(new errors.interservice_error('Unable to GET ' + _url + ' - status code: ' + result.response.statusCode));
+        return callback(new errors.interservice_error('Unable to GET ' +
+          params.url + ' - status code: ' + result.response.statusCode));
       }
 
       callback(null, JSON.parse(result.body));
@@ -65,32 +88,30 @@ var Request = function(default_options) {
   };
 
   var post = function(options, callback) {
-    var _url = _prepare_url(options);
+    var params = _prepare_params(options);
 
     async.retry({
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      request.post({
-        url: _url,
-        formData: options.data
-      }, function(error, response, body) {
+      request.post(params, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', _url, '). Retrying...');
+          console.log('Failed calling (', params.url, '). Retrying...');
         }
 
         cb(error, {
           response: response,
           body: body
         });
-      }).auth(null, null, true, options.token);
+      });
     }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (result.response.statusCode !== 201) {
-        return callback(new errors.interservice_error('Unable to POST ' + _url + ' - status code: ' + result.response.statusCode));
+      if (!_.contains([200, 201], result.response.statusCode)) {
+        return callback(new errors.interservice_error('Unable to POST ' +
+          params.url + ' - status code: ' + result.response.statusCode));
       }
 
       callback(null, JSON.parse(result.body));
@@ -98,32 +119,30 @@ var Request = function(default_options) {
   };
 
   var put = function(options, callback) {
-    var _url = _prepare_url(options);
+    var params = _prepare_params(options);
 
     async.retry({
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      request.put({
-        url: _url,
-        formData: options.data
-      }, function(error, response, body) {
+      request.put(params, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', _url, '). Retrying...');
+          console.log('Failed calling (', params.url, '). Retrying...');
         }
 
         cb(error, {
           response: response,
           body: body
         });
-      }).auth(null, null, true, options.token);
+      });
     }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (result.response.statusCode !== 204) {
-        return callback(new errors.interservice_error('Unable to PUT ' + _url + ' - status code: ' + result.response.statusCode));
+      if (!_.contains([200, 204], result.response.statusCode)) {
+        return callback(new errors.interservice_error('Unable to PUT ' +
+          params.url + ' - status code: ' + result.response.statusCode));
       }
 
       callback(null, JSON.parse(result.body));
@@ -131,31 +150,30 @@ var Request = function(default_options) {
   };
 
   var del = function(options, callback) {
-    var _url = _prepare_url(options);
+    var params = _prepare_params(options);
 
     async.retry({
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      request.del({
-        url: _url
-      }, function(error, response, body) {
+      request.del(params, function(error, response, body) {
         if (error) {
-          console.log('Failed calling (', _url, '). Retrying...');
+          console.log('Failed calling (', params.url, '). Retrying...');
         }
 
         cb(error, {
           response: response,
           body: body
         });
-      }).auth(null, null, true, options.token);
+      });
     }, function(error, result) {
       if (error) {
         return callback(error);
       }
 
-      if (result.response.statusCode !== 204) {
-        return callback(new errors.interservice_error('Unable to DELETE ' + _url + ' - status code: ' + result.response.statusCode));
+      if (!_.contains([200, 204], result.response.statusCode)) {
+        return callback(new errors.interservice_error('Unable to DELETE ' +
+          params.url + ' - status code: ' + result.response.statusCode));
       }
 
       callback(null, JSON.parse(result.body));
