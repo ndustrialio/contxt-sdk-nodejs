@@ -1,4 +1,6 @@
-var config = require('./config');
+var async = require('async'),
+  _ = require('underscore'),
+  config = require('./config');
 
 var Listener = function(options) {
   var _config = config.get(),
@@ -16,14 +18,24 @@ var Listener = function(options) {
   });
 
   var listen = function(exchange_name, routing_key, callback) {
-    rabbitmq_connection.on('ready', function() {
-      console.log('Binded exchange', environment + '.' + exchange_name, 'to routing key', environment + '.' + routing_key);
+    async.retry({
+      times: 10,
+      interval: 1000
+    }, function(callback) {
+      if (!_.isUndefined(queue)) {
+        callback(null, queue);
+      } else {
+        callback('RabbitMQ queue is not ready to bind to');
+      }
+    }, function(err, result) {
+      console.log('Binded queue', queue.name, '(', environment + '.' +
+        routing_key, ') to queue', environment + '.' + exchange_name);
 
       queue.bind(environment + '.' + exchange_name, environment + '.' + routing_key);
 
       queue.subscribe(function(message, headers, delivery_info, message_object) {
-        console.log('Received message', message);
-        console.log('on queue', queue.name, 'with routing key', delivery_info.routingKey);
+        console.log('Received message', message, 'on queue', queue.name,
+          'with routing key', delivery_info.routingKey);
 
         var short_routing_key = delivery_info.routingKey;
 
