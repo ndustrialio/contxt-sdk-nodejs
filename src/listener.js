@@ -23,11 +23,17 @@ var Listener = function(options) {
       interval: 1000
     }, function(callback) {
       if (!_.isUndefined(queue)) {
-        callback(null, queue);
+        callback();
       } else {
-        callback('RabbitMQ queue is not ready to bind to');
+        callback('RabbitMQ queue is not ready.');
       }
-    }, function(err, result) {
+    }, function(err) {
+      if (err) {
+        console.log(err);
+
+        return;
+      }
+
       console.log('Binded queue', queue.name, '(', environment + '.' +
         routing_key, ') to queue', environment + '.' + exchange_name);
 
