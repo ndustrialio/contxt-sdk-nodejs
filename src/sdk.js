@@ -15,9 +15,15 @@ var Sdk = function(options) {
       url: _options.rabbitmq_connection_string
     });
 
+    rabbitmq_connection.ready = false;
+
     rabbitmq_connection.on('error', function(error) {
       console.error('RABBITMQ ERROR');
       console.log(error);
+    });
+
+    rabbitmq_connection.on('ready', function() {
+      rabbitmq_connection.ready = true;
     });
 
     _options.rabbitmq_connection = rabbitmq_connection;
