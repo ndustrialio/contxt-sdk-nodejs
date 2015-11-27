@@ -67,6 +67,8 @@ var Listener = function(options) {
 
           _create_binding(queue, options, callback);
         });
+
+        queues[options.queue_name] = queue;
       }
     });
   };
