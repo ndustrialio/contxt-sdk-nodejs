@@ -19,8 +19,8 @@ var Notifier = function(options) {
 
   var notify = function(routing_key) {
     return function(req, res, next) {
-      if (!_.has(req, 'data')) {
-        req.data = {};
+      if (!_.has(res, 'data')) {
+        res.data = {};
       }
 
       console.log('Published message', res.data);
