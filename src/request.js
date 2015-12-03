@@ -63,8 +63,8 @@ var Request = function(default_options) {
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      console.log('Calling GET (', params.url, ') with', params.data ?
-        params.data : 'no payload');
+      console.log('Calling GET (', params.url, ') with', params.form ?
+        params.form : 'no payload');
 
       request.get(params, function(error, response, body) {
         if (error) {
@@ -97,8 +97,8 @@ var Request = function(default_options) {
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      console.log('Calling POST (', params.url, ') with', params.data ?
-        params.data : 'no payload');
+      console.log('Calling POST (', params.url, ') with', params.form ?
+        params.form : 'no payload');
 
       request.post(params, function(error, response, body) {
         if (error) {
@@ -131,8 +131,8 @@ var Request = function(default_options) {
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      console.log('Calling PUT (', params.url, ') with', params.data ?
-        params.data : 'no payload');
+      console.log('Calling PUT (', params.url, ') with', params.form ?
+        params.form : 'no payload');
 
       request.put(params, function(error, response, body) {
         if (error) {
@@ -165,8 +165,8 @@ var Request = function(default_options) {
       times: RETRY_TIMES,
       interval: RETRY_INTERVAL
     }, function(cb) {
-      console.log('Calling DELETE (', params.url, ') with', params.data ?
-        params.data : 'no payload');
+      console.log('Calling DELETE (', params.url, ') with', params.form ?
+        params.form : 'no payload');
 
       request.del(params, function(error, response, body) {
         if (error) {
