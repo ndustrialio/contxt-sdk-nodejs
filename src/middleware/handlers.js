@@ -1,29 +1,29 @@
 var config = require('./../config');
 
 /**
- * @class Errors
+ * @class Handlers
  * @constructor
  * @static
  * @module middleware
- * @submodule errors
+ * @submodule handlers
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
  */
 
-var Errors = function() {
+var Handlers = function() {
   var _config = config.get();
 
   /**
    * Handle errors.
    *
-   * @member handler
+   * @member errors
    * @async
    * @param {object} err - The forwarded error object.
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    * @param {function} next - Callback to execute the next Express middleware.
    */
-  var handler = function(err, req, res, next) {
+  var errors = function(err, req, res, next) {
     var error_code = err.code || 500,
       error_message = err.message || 'Internal server error',
       environment = _config.environment;
@@ -52,8 +52,8 @@ var Errors = function() {
   };
 
   return {
-    handler: handler
+    errors: errors
   };
 };
 
-module.exports = Errors();
+module.exports = Handlers();
