@@ -16,13 +16,41 @@ var async = require('async'),
  */
 
 var Listener = function(options) {
-  var _config = config.get(),
-    environment = _config.environment,
-    connection = _config.rabbitmq_connection,
-    queues = [];
+  /**
+   * @property _config
+   * @private
+   * @type object
+   */
+  var _config = config.get();
+
+  /**
+   * @property environment
+   * @private
+   * @type string
+   */
+  var environment = _config.environment;
+
+  /**
+   * @property connection
+   * @private
+   * @type object
+   */
+  var connection = _config.rabbitmq_connection;
+
+  /**
+   * @property queues
+   * @private
+   * @type array
+   */
+  var queues = [];
 
   /**
    * Call a callback when the RabbitMQ connection is ready.
+   *
+   * @method _ready
+   * @private
+   * @async
+   * @param {function} callback - The callback that handles the response.
    */
   var _ready = function(callback) {
     async.retry({
@@ -39,6 +67,16 @@ var Listener = function(options) {
 
   /**
    * Bind the queue to the exchange with the routing key.
+   *
+   * @method _create_binding
+   * @private
+   * @async
+   * @param {object} queue - RabbitMQ queue.
+   * @param {object} options - Options.
+   * @param {string} options.routing_key - The routing key.
+   * @param {string} options.queue_name - The queue name.
+   * @param {string} options.exchange_name - The exchange name.
+   * @param {function} callback - The callback that handles the response.
    */
   var _create_binding = function(queue, options, callback) {
     console.log('Binded queue', queue.name, '(', environment + '.' +
@@ -68,7 +106,7 @@ var Listener = function(options) {
    *
    * @method listen
    * @async
-   * @param {Object} options - Options.
+   * @param {object} options - Options.
    * @param {string} options.routing_key - The routing key.
    * @param {string} options.queue_name - The queue name.
    * @param {string} options.exchange_name - The exchange name.

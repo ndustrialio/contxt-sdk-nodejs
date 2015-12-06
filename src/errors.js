@@ -11,6 +11,11 @@ var util = require('util');
  */
 
 var Errors = function() {
+
+  /**
+   * @method not_found
+   * @param {string} message - Message.
+   */
   var not_found = function(message) {
     this.code = 404;
     this.message = message;
@@ -18,6 +23,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method no_content
+   * @param {string} message - Message.
+   */
   var no_content = function(message) {
     this.code = 204;
     this.message = message;
@@ -25,6 +34,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method not_implemented
+   * @param {string} message - Message.
+   */
   var not_implemented = function(message) {
     this.code = 501;
     this.message = message;
@@ -32,6 +45,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method not_authorised
+   * @param {string} message - Message.
+   */
   var not_authorised = function(message) {
     this.code = 401;
     this.message = message;
@@ -39,6 +56,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method bad_request
+   * @param {string} message - Message.
+   */
   var bad_request = function(message) {
     this.code = 400;
     this.message = message;
@@ -46,6 +67,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method server_error
+   * @param {string} message - Message.
+   */
   var server_error = function(message) {
     this.code = 500;
     this.message = message;
@@ -53,6 +78,11 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method validation_error
+   * @param {string} message - Message.
+   * @param {string} path - Path.
+   */
   var validation_error = function(message, path) {
     this.code = 400;
     this.message = message;
@@ -67,6 +97,10 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method interservice_error
+   * @param {string} message - Message.
+   */
   var interservice_error = function(message) {
     this.code = 503;
     this.message = message;

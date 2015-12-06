@@ -20,7 +20,7 @@ var _ = require('underscore'),
 var Sdk = function(options) {
   /**
    * @property _options
-   * @type Object
+   * @type object
    */
   var _options = _.defaults(options, {
     environment: 'development'

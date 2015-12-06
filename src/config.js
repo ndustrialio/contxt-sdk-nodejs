@@ -14,7 +14,7 @@ var Config = function() {
   /**
    * @property _configs
    * @private
-   * @type Object
+   * @type object
    */
   var _configs = {};
 

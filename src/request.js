@@ -20,12 +20,14 @@ var _ = require('underscore'),
 var Request = function(default_options) {
   /**
    * @property _options
-   * @type Object
+   * @private
+   * @type object
    */
   var _options = _.defaults(default_options, {});
 
   /**
    * @property RETRY_TIMES
+   * @private
    * @type integer
    * @final
    */
@@ -33,6 +35,7 @@ var Request = function(default_options) {
 
   /**
    * @property RETRY_INTERVAL
+   * @private
    * @type integer
    * @final
    */
@@ -40,7 +43,8 @@ var Request = function(default_options) {
 
   /**
    * @property request
-   * @type Object
+   * @private
+   * @type object
    */
   var request = _Request.defaults({
     headers: {
@@ -49,7 +53,7 @@ var Request = function(default_options) {
   });
 
   /**
-   * Makes a GET call.
+   * Prepare url.
    *
    * @method _prepare_url
    * @private
@@ -77,7 +81,7 @@ var Request = function(default_options) {
   };
 
   /**
-   * Makes a GET call.
+   * Prepare params.
    *
    * @method _prepare_params
    * @private
@@ -115,9 +119,9 @@ var Request = function(default_options) {
    * Makes a GET call.
    *
    * @method get
-   * @param {Object} options - Options.
+   * @param {object} options - Options.
    * @param {string} options.url - The URL to call.
-   * @param {Object[]} options.query - URL query params.
+   * @param {object[]} options.query - URL query params.
    * @param {string} options.token - OAuth2 token.
    * @param {function} callback - The callback that handles the response.
    */
@@ -160,9 +164,9 @@ var Request = function(default_options) {
    *
    * @method post
    * @async
-   * @param {Object} options - Options.
+   * @param {object} options - Options.
    * @param {string} options.url - The URL to call.
-   * @param {Object[]} options.data - Data to be posted.
+   * @param {object[]} options.data - Data to be posted.
    * @param {string} options.token - OAuth2 token.
    * @param {function} callback - The callback that handles the response.
    */
@@ -205,9 +209,9 @@ var Request = function(default_options) {
    *
    * @method put
    * @async
-   * @param {Object} options - Options.
+   * @param {object} options - Options.
    * @param {string} options.url - The URL to call.
-   * @param {Object[]} options.data - Data to be posted.
+   * @param {object[]} options.data - Data to be posted.
    * @param {string} options.token - OAuth2 token.
    * @param {function} callback - The callback that handles the response.
    */
@@ -250,7 +254,7 @@ var Request = function(default_options) {
    *
    * @method del
    * @async
-   * @param {Object} options - Options.
+   * @param {object} options - Options.
    * @param {string} options.url - The URL to call.
    * @param {string} options.token - OAuth2 token.
    * @param {function} callback - The callback that handles the response.

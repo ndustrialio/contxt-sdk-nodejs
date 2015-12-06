@@ -2,6 +2,7 @@ var _ = require('underscore');
 
 /**
  * Provides useful functions.
+ *
  * @class Util
  * @constructor
  * @static
@@ -26,6 +27,11 @@ var Util = function() {
     }));
   };
 
+  /**
+   * Transform an array to a tree.
+   *
+   * @method array_to_tree
+   */
   var array_to_tree = function(array, parent, first, picked_fields) {
     var first = typeof first !== 'undefined' ? first : false,
       tree = [];
@@ -55,6 +61,11 @@ var Util = function() {
     return _.pick(tree, picked_fields);
   };
 
+  /**
+   * Transform a tree to a multidimensional array.
+   *
+   * @method tree_to_array
+   */
   var tree_to_array = function(node, array) {
     var array = array || [];
 
@@ -76,6 +87,11 @@ var Util = function() {
     return array;
   };
 
+  /**
+   * Returns the node parent of the provided tree.
+   *
+   * @method get_node_parent
+   */
   var get_node_parent = function(node, tree) {
     var array = tree_to_array(tree);
 
@@ -88,6 +104,11 @@ var Util = function() {
     return false;
   };
 
+  /**
+   * Returns the children nodes of the provided node.
+   *
+   * @method get_node_parent
+   */
   var get_node_children = function(node, tree) {
     var array = tree_to_array(tree),
       children = [];
@@ -101,6 +122,11 @@ var Util = function() {
     return children;
   };
 
+  /**
+   * Order tree.
+   *
+   * @method order_tree
+   */
   var order_tree = function(treeLevelNodes, count) {
     _.each(treeLevelNodes, function(node) {
       node.lft = count++;
@@ -115,6 +141,11 @@ var Util = function() {
     return count;
   };
 
+  /**
+   * Checks for the input to be an object literal.
+   *
+   * @method is_dictionary
+   */
   var is_dictionary = function(dictionary) {
     var _test = dictionary;
 
@@ -131,6 +162,11 @@ var Util = function() {
     }
   };
 
+  /**
+   * Validation.
+   *
+   * @method validate_part
+   */
   var validate_part = function(part) {
     var supported_field_operators = ['$eq', '$gt', '$gte', '$lt', '$lte', '$ne', '$or', '$and', '$not', '$nor'],
       supported_logical_operators = ['$or', '$and', '$not', '$nor'],
@@ -154,17 +190,11 @@ var Util = function() {
 
   return {
     array_to_dictionary: array_to_dictionary,
-    /** Transform an array to a tree. */
     array_to_tree: array_to_tree,
-    /** Transform a tree to a multidimensional array. */
     tree_to_array: tree_to_array,
-    /** Returns the node parent of the provided tree. */
     get_node_parent: get_node_parent,
-    /** Returns the children nodes of the provided node. */
     get_node_children: get_node_children,
-    /** Order tree. */
     order_tree: order_tree,
-    /** Checks for the input to be an object literal. */
     is_dictionary: is_dictionary,
     validate_part: validate_part
   };
