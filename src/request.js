@@ -4,17 +4,61 @@ var _ = require('underscore'),
   _Request = require('request'),
   errors = require('./errors');
 
-var Request = function(default_options) {
-  var _options = _.defaults(default_options, {}),
-    RETRY_TIMES = 3,
-    RETRY_INTERVAL = 200;
+/**
+ * Allows to call remote services.
+ *
+ * @class Request
+ * @constructor
+ * @param {object} options - The options.
+ * @static
+ * @module contxt
+ * @submodule request
+ * @main contxt
+ * @namespace contxt-sdk-nodejs
+ */
 
+var Request = function(default_options) {
+  /**
+   * @property _options
+   * @type Object
+   */
+  var _options = _.defaults(default_options, {});
+
+  /**
+   * @property RETRY_TIMES
+   * @type integer
+   * @final
+   */
+  var RETRY_TIMES = 3;
+
+  /**
+   * @property RETRY_INTERVAL
+   * @type integer
+   * @final
+   */
+  var RETRY_INTERVAL = 200;
+
+  /**
+   * @property request
+   * @type Object
+   */
   var request = _Request.defaults({
     headers: {
       something: 'something'
     }
   });
 
+  /**
+   * Makes a GET call.
+   *
+   * @method _prepare_url
+   * @private
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @return {string} url - The callback that handles the response.
+   */
   var _prepare_url = function(options) {
     // TODO: Check for the URL to be set on options
     var _url = options.url;
@@ -32,6 +76,17 @@ var Request = function(default_options) {
     return _url;
   };
 
+  /**
+   * Makes a GET call.
+   *
+   * @method _prepare_params
+   * @private
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @return {object} params - The callback that handles the response.
+   */
   var _prepare_params = function(options) {
     var _url = _prepare_url(options);
 
@@ -56,6 +111,16 @@ var Request = function(default_options) {
     return params;
   };
 
+  /**
+   * Makes a GET call.
+   *
+   * @method get
+   * @param {Object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {Object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
   var get = function(options, callback) {
     var params = _prepare_params(options);
 
@@ -90,6 +155,17 @@ var Request = function(default_options) {
     });
   };
 
+  /**
+   * Makes a POST call.
+   *
+   * @method post
+   * @async
+   * @param {Object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {Object[]} options.data - Data to be posted.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
   var post = function(options, callback) {
     var params = _prepare_params(options);
 
@@ -124,6 +200,17 @@ var Request = function(default_options) {
     });
   };
 
+  /**
+   * Makes a PUT call.
+   *
+   * @method put
+   * @async
+   * @param {Object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {Object[]} options.data - Data to be posted.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
   var put = function(options, callback) {
     var params = _prepare_params(options);
 
@@ -158,6 +245,16 @@ var Request = function(default_options) {
     });
   };
 
+  /**
+   * Makes a DELETE call.
+   *
+   * @method del
+   * @async
+   * @param {Object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
   var del = function(options, callback) {
     var params = _prepare_params(options);
 

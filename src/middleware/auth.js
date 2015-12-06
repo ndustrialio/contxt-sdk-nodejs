@@ -2,7 +2,28 @@ var request = require('request'),
   _ = require('underscore'),
   errors = require('./../errors');
 
+/**
+ * @class Auth
+ * @constructor
+ * @param {object} options - The options.
+ * @static
+ * @module middleware
+ * @submodule auth
+ * @main middleware
+ * @namespace contxt-sdk-nodejs.sdk.middleware
+ */
+
 var Auth = function(options) {
+
+  /**
+   * Call an OAuth endpoint to authorize the request.
+   *
+   * @member authorize
+   * @async
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {function} next - Callback to execute the next Express middleware.
+   */
   var authorize = function(req, res, next) {
     var bearer = req.header('Authorization'),
       token;
@@ -30,15 +51,15 @@ var Auth = function(options) {
       if (error) {
         return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
       }
-      
+
       if (response.statusCode != 200) {
-          if (response.statusCode == 502) {
-              return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
-          } else {
-              return next(new errors.not_authorised(body));
-          }
+        if (response.statusCode == 502) {
+          return next(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
+        } else {
+          return next(new errors.not_authorised(body));
+        }
       }
-      
+
       var result = JSON.parse(body);
 
       // TODO: Better check for if the response body is an user object or an auth error

@@ -1,5 +1,15 @@
 var util = require('util');
 
+/**
+ * Useful error messages and codes.
+ *
+ * @class Errors
+ * @constructor
+ * @static
+ * @module contxt
+ * @namespace contxt-sdk-nodejs
+ */
+
 var Errors = function() {
   var not_found = function(message) {
     this.code = 404;

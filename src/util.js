@@ -1,6 +1,25 @@
 var _ = require('underscore');
 
+/**
+ * Provides useful functions.
+ * @class Util
+ * @constructor
+ * @static
+ * @module contxt
+ * @submodule util
+ * @main contxt
+ * @namespace contxt-sdk-nodejs
+ */
+
 var Util = function() {
+
+  /**
+   * Transform an array to an object.
+   *
+   * @method array_to_dictionary
+   * @param {array} results - The array to be transformed.
+   * @return {object} result - The transformed object.
+   */
   var array_to_dictionary = function(results) {
     return _.object(_.map(results, function(result) {
       return [result.key, result.value];
@@ -135,11 +154,17 @@ var Util = function() {
 
   return {
     array_to_dictionary: array_to_dictionary,
+    /** Transform an array to a tree. */
     array_to_tree: array_to_tree,
+    /** Transform a tree to a multidimensional array. */
     tree_to_array: tree_to_array,
+    /** Returns the node parent of the provided tree. */
     get_node_parent: get_node_parent,
+    /** Returns the children nodes of the provided node. */
     get_node_children: get_node_children,
+    /** Order tree. */
     order_tree: order_tree,
+    /** Checks for the input to be an object literal. */
     is_dictionary: is_dictionary,
     validate_part: validate_part
   };

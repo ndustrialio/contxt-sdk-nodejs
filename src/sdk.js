@@ -5,7 +5,23 @@ var _ = require('underscore'),
   middleware = require('./middleware'),
   Listener = require('./listener');
 
+/**
+ * Provides useful functions.
+ * @class Sdk
+ * @constructor
+ * @param {object} options - The options.
+ * @static
+ * @module contxt
+ * @submodule sdk
+ * @main contxt
+ * @namespace contxt-sdk-nodejs
+ */
+
 var Sdk = function(options) {
+  /**
+   * @property _options
+   * @type Object
+   */
   var _options = _.defaults(options, {
     environment: 'development'
   });

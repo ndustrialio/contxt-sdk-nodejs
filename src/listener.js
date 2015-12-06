@@ -2,12 +2,28 @@ var async = require('async'),
   _ = require('underscore'),
   config = require('./config');
 
+/**
+ * Listen for messages on queue.
+ *
+ * @class Listener
+ * @constructor
+ * @param {object} options - The options.
+ * @static
+ * @module contxt
+ * @submodule sdk
+ * @main contxt
+ * @namespace contxt-sdk-nodejs.sdk
+ */
+
 var Listener = function(options) {
   var _config = config.get(),
     environment = _config.environment,
     connection = _config.rabbitmq_connection,
     queues = [];
 
+  /**
+   * Call a callback when the RabbitMQ connection is ready.
+   */
   var _ready = function(callback) {
     async.retry({
       times: 10,
@@ -21,6 +37,9 @@ var Listener = function(options) {
     }, callback);
   };
 
+  /**
+   * Bind the queue to the exchange with the routing key.
+   */
   var _create_binding = function(queue, options, callback) {
     console.log('Binded queue', queue.name, '(', environment + '.' +
       options.routing_key, ') to exchange', environment + '.' +
@@ -44,6 +63,17 @@ var Listener = function(options) {
     });
   };
 
+  /**
+   * Listen for messages on queue.
+   *
+   * @method listen
+   * @async
+   * @param {Object} options - Options.
+   * @param {string} options.routing_key - The routing key.
+   * @param {string} options.queue_name - The queue name.
+   * @param {string} options.exchange_name - The exchange name.
+   * @param {function} callback - The callback that handles the response.
+   */
   var listen = function(options, callback) {
     _ready(function(err) {
       if (err) {
