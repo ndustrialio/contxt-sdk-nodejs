@@ -108,7 +108,7 @@ var Util = function() {
   /**
    * Returns the children nodes of the provided node.
    *
-   * @method get_node_parent
+   * @method get_node_children
    */
   var get_node_children = function(node, tree) {
     var array = tree_to_array(tree),
