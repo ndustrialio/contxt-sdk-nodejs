@@ -6,6 +6,8 @@
  * @submodule cors
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @example
+ *  var cors = require('contxt-sdk-nodejs').Sdk().middleware.cors;
  */
 
 var Cors = function() {

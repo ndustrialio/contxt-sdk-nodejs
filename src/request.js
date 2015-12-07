@@ -15,6 +15,7 @@ var _ = require('underscore'),
  * @submodule request
  * @main contxt
  * @namespace contxt-sdk-nodejs
+ * @example var request = require('contxt-sdk-nodejs').Request();
  */
 
 var Request = function(default_options) {

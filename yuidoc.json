@@ -1,0 +1,6 @@
+{
+  "name": "contxt-sdk-nodejs",
+  "description": "Library for common microservices functions",
+  "version": "0.0.2",
+  "url": "https://github.com/ndustrialio/contxt-sdk-nodejs"
+}

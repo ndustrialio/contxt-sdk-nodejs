@@ -8,6 +8,7 @@ var util = require('util');
  * @static
  * @module contxt
  * @namespace contxt-sdk-nodejs
+ * @example var errors = require('contxt-sdk-nodejs').errors;
  */
 
 var Errors = function() {

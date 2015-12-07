@@ -8,11 +8,16 @@ var async = require('async'),
  * @class Listener
  * @constructor
  * @param {object} options - The options.
+ * @param {object} options.queue_name - RabbitMQ queue name to pull message from.
  * @static
  * @module contxt
  * @submodule sdk
  * @main contxt
  * @namespace contxt-sdk-nodejs.sdk
+ * @example
+ *  var listener = require('contxt-sdk-nodejs').Sdk().Listener({
+ *    queue_name: 'rabbitmq-queue'
+ *  });
  */
 
 var Listener = function(options) {

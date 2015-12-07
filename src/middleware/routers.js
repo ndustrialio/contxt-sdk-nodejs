@@ -9,6 +9,8 @@ var _ = require('underscore'),
  * @submodule routes
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @example
+ *  var routers = require('contxt-sdk-nodejs').Sdk().middleware.Routers();
  */
 
 var Routers = function() {

@@ -6,11 +6,14 @@ var request = require('request'),
  * @class Auth
  * @constructor
  * @param {object} options - The options.
+ * @param {object} options.service_url - The OAuth2 service URL.
  * @static
  * @module middleware
  * @submodule auth
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @example
+ *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth({service_url: 'test'});
  */
 
 var Auth = function(options) {

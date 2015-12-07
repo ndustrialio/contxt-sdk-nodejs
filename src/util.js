@@ -10,6 +10,7 @@ var _ = require('underscore');
  * @submodule util
  * @main contxt
  * @namespace contxt-sdk-nodejs
+ * @example var util = require('contxt-sdk-nodejs').util;
  */
 
 var Util = function() {

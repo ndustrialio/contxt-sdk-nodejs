@@ -5,18 +5,44 @@ var _ = require('underscore'),
  * @class Notifier
  * @constructor
  * @param {object} options - The options.
+ * @param {object} options.exchange_name - The RabbitMQ exchange to publish to.
  * @static
  * @module middleware
  * @submodule notifier
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @example
+ *  var notifier = require('contxt-sdk-nodejs').Sdk().middleware.Notifier({exchange_name: 'test'});
  */
 
 var Notifier = function(options) {
-  var _config = config.get(),
-    environment = _config.environment,
-    rabbitmq_connection = _config.rabbitmq_connection,
-    exchange;
+  /**
+   * @property _config
+   * @private
+   * @type object
+   */
+  var _config = config.get();
+
+  /**
+   * @property environment
+   * @private
+   * @type string
+   */
+  var environment = _config.environment;
+
+  /**
+   * @property rabbitmq_connection
+   * @private
+   * @type object
+   */
+  var rabbitmq_connection = _config.rabbitmq_connection;
+
+  /**
+   * @property exchange
+   * @private
+   * @type object
+   */
+  var exchange;
 
   rabbitmq_connection.on('ready', function() {
     exchange = rabbitmq_connection.exchange(environment + '.' + options.exchange_name, {

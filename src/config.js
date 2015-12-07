@@ -8,6 +8,7 @@
  * @submodule config
  * @main contxt
  * @namespace contxt-sdk-nodejs
+ * @example var config = require('contxt-sdk-nodejs').config;
  */
 
 var Config = function() {

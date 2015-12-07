@@ -8,9 +8,16 @@ var config = require('./../config');
  * @submodule handlers
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @example
+ *  var handlers = require('contxt-sdk-nodejs').Sdk().middleware.handlers;
  */
 
 var Handlers = function() {
+  /**
+   * @property _config
+   * @private
+   * @type object
+   */
   var _config = config.get();
 
   /**

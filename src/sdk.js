@@ -6,15 +6,23 @@ var _ = require('underscore'),
   Listener = require('./listener');
 
 /**
- * Provides useful functions.
+ * Contains components that require configuration.
+ *
  * @class Sdk
  * @constructor
- * @param {object} options - The options.
+ * @param {object} options - Options stored and used by subcomponents.
+ * @param {object} options.environment - The environment loaded.
+ * @param {object} options.rabbitmq_connection_string - RabbitMQ conection string.
  * @static
  * @module contxt
  * @submodule sdk
  * @main contxt
  * @namespace contxt-sdk-nodejs
+ * @example
+ *  var sdk = require('contxt-sdk-nodejs').Sdk({
+ *    environment: 'development',
+ *    rabbitmq_connection_string: 'amqp://0.0.0.0'
+ *  });
  */
 
 var Sdk = function(options) {
