@@ -15,3 +15,8 @@ deploy:
       - lukevivier/gh-pages:
           token: $GITHUB_TOKEN
           basedir: out
+
+    after-steps:
+      - kobim/slack-post:
+          url: $SLACK_WEBHOOK_URL
+          channel: deployments
