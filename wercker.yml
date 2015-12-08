@@ -12,6 +12,8 @@ build:
 
 deploy:
     steps:
+      - script:
+          code: git pull
       - uetchy/gh-pages:
           token: $GITHUB_TOKEN
           path: out
