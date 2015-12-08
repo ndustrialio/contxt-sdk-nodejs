@@ -2,6 +2,9 @@ box: nodesource/trusty
 
 build:
     steps:
+      - script:
+          name: set env to development
+          code: export NODE_ENV=development
       - npm-install
       - script:
           name: YUIDoc build
