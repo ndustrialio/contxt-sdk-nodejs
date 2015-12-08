@@ -12,6 +12,6 @@ build:
 
 deploy:
     steps:
-      - eyedol/deploy-gh-pages@0.2.1:
+      - lukevivier/gh-pages::
           token: $GH_TOKEN
           basedir: out
