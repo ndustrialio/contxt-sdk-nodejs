@@ -1,0 +1,14 @@
+box: nodesource/trusty
+
+build:
+    steps:
+      - npm-install
+      - script:
+          name: YUIDoc build
+          code: ./node_modules/yuidocjs/lib/cli.js src
+
+deploy:
+    steps:
+      - eyedol/deploy-gh-pages@0.2.1:
+          token: $GITHUB_TOKEN
+          basedir: out
