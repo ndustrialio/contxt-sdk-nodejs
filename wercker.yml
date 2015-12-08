@@ -13,5 +13,5 @@ build:
 deploy:
     steps:
       - eyedol/deploy-gh-pages@0.2.1:
-          token: $GITHUB_TOKEN
+          token: $GH_TOKEN
           basedir: out
