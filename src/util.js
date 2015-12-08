@@ -20,7 +20,7 @@ var Util = function() {
    *
    * @method array_to_dictionary
    * @param {array} results - The array to be transformed.
-   * @return {object} result - The transformed object.
+   * @return {object} result - The transformed dictionary.
    */
   var array_to_dictionary = function(results) {
     return _.object(_.map(results, function(result) {
@@ -32,6 +32,11 @@ var Util = function() {
    * Transform an array to a tree.
    *
    * @method array_to_tree
+   * @param {array} array - The array to be transformed.
+   * @param {object} parent - The parent node.
+   * @param {object} first - Used by the recursive function.
+   * @param {object} picked_fields - Fields from the tree to be in the final result.
+   * @return {object} tree - The transformed tree.
    */
   var array_to_tree = function(array, parent, first, picked_fields) {
     var first = typeof first !== 'undefined' ? first : false,
