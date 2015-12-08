@@ -71,6 +71,9 @@ var Util = function() {
    * Transform a tree to a multidimensional array.
    *
    * @method tree_to_array
+   * @param {object} node - The tree node to start from.
+   * @param {array} array - Required for recursive function.
+   * @param {array} array - The tree flattened into an array.
    */
   var tree_to_array = function(node, array) {
     var array = array || [];
