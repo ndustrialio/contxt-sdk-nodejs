@@ -103,7 +103,7 @@ var Auth = function(options) {
       return next(new errors.not_authorised('Access token not provided'));
     }
 
-    token = _.first(bearer.match(/[A-Za-z0-9]{255}/g));
+    token = bearer.split(' ')[1];
 
     if (!token) {
       return next(new errors.validation_error('Access token is malformed'));
