@@ -57,24 +57,7 @@ var Sdk = function(options) {
     _options.rabbitmq_connection = rabbitmq_connection;
   }
 
-  if (_.has(_options, 'redis_connection_string')) {
-    var redis_connection = Redis.createClient({
-      url: _options.redis_connection_string
-    });
-
-    redis_connection.on('error', function(err) {
-      console.error('REDIS ERROR');
-      console.log(err);
-    });
-
-    redis_connection.on('ready', function() {
-      redis_connection.ready = true;
-    });
-
-    _options.redis_connection = redis_connection;
-  }
-
-  config.set(_options);
+  config.init(_options);
 
   return {
     middleware: middleware,

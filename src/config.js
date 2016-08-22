@@ -20,14 +20,25 @@ var Config = function() {
   var _configs = {};
 
   /**
+   * Set All configurations at once (overwriting existing ones as well)
+   *
+   * @method set
+   * @param {Object} obj - The configuration object.
+   */
+  var init = function(obj) {
+    _configs = obj;
+  };
+  
+  /**
    * Set configurations with new value.
    *
    * @method set
-   * @param {string} value - The value.
+   * @param {string} key - The key
+   * @param {string} value - The value
    */
-  var set = function(value) {
-    _configs = value;
-  };
+  var set = function(key, value) {
+      _configs[key] = value;
+  }
 
   /**
    * Get configurations.
@@ -40,6 +51,7 @@ var Config = function() {
   };
 
   return {
+    init: init,
     set: set,
     get: get
   };
