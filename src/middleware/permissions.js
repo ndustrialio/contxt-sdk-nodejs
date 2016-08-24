@@ -151,6 +151,9 @@ var Permissions = function(options) {
   
     return function(req, res, next) {
       console.log(req.user);
+      if (_.isEmpty(_roles_map)) {
+          return next(new errors.server_error('Error - Permissions roles are unregistered or the server encountered an error retrieving roles from Contxt API Service'));
+      }
       var scope = _scopes_by_controller[controller_path];
       if (!scope) {
           console.log('No scope for controller: ' + controller_path)
