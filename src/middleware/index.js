@@ -11,3 +11,4 @@ module.exports.Routers = require('./routers');
 module.exports.Auth = require('./auth');
 module.exports.Notifier = require('./notifier');
 module.exports.Permissions = require('./permissions');
+module.exports.Paginate = require('./paginate');
