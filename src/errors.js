@@ -109,6 +109,25 @@ var Errors = function() {
     Error.call(this);
   };
 
+  /**
+   * @method conflict_error
+   * @param {string} message - Message.
+   * @param {string} path - Path.
+   */
+  var conflict_error = function(message, path) {
+    this.code = 409;
+    this.message = message;
+    this.errors = {};
+    this.errors[path] = {
+      message: message,
+      name: 'ConflictError',
+      path: path,
+      type: 'user defined'
+    };
+
+    Error.call(this);
+  };
+
   util.inherits(not_found, Error);
   util.inherits(no_content, Error);
   util.inherits(not_implemented, Error);
@@ -117,6 +136,7 @@ var Errors = function() {
   util.inherits(validation_error, Error);
   util.inherits(server_error, Error);
   util.inherits(interservice_error, Error);
+  util.inherits(conflict_error, Error);
 
   return {
     not_found: not_found,
@@ -126,7 +146,8 @@ var Errors = function() {
     bad_request: bad_request,
     validation_error: validation_error,
     server_error: server_error,
-    interservice_error: interservice_error
+    interservice_error: interservice_error,
+    conflict_error: conflict_error
   };
 };
 
