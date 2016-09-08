@@ -35,6 +35,15 @@ var Auth = function(options) {
     throw new Error('auth0_audience must be provided!');
   }
 
+  /**
+   * Auth0 authorization middleware based on JWT.
+   *
+   * @member authorize
+   * @async
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {function} next - Callback to execute the next Express middleware.
+   */
   var authorize = function(req, res, next) {
     var regex = /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+\/=]*$/;
 
