@@ -1,4 +1,5 @@
-var config = require('./../config');
+var _ = require('underscore'),
+  config = require('./../config');
 
 /**
  * @class Handlers
@@ -31,9 +32,17 @@ var Handlers = function() {
    * @param {function} next - Callback to execute the next Express middleware.
    */
   var errors = function(err, req, res, next) {
-    var error_code = err.code || 500,
+    var error_code = 500,
       error_message = err.message || 'Internal server error',
       environment = _config.environment;
+
+    if (_.has(err, 'code') && _.isNumber(err.code)) {
+      error_code = err.code;
+    }
+
+    if (_.has(err, 'status') && _.isNumber(err.status)) {
+      error_code = err.status;
+    }
 
     switch (environment) {
       case 'production':
