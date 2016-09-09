@@ -4,39 +4,39 @@ var _ = require('underscore'),
   errors = require('./../errors');
 
 /**
- * @class Auth
+ * @class Auth0
  * @constructor
  * @param {object} options - The options.
- * @param {string} options.auth0_issuer - The Auth0 issuer URL.
- * @param {string} options.auth0_audience - The Auth0 audience.
+ * @param {string} options.issuer - The issuer URL.
+ * @param {string} options.audience - The audience.
  * @static
  * @module middleware
- * @submodule auth
+ * @submodule auth0
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
  * @example
- *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth({
- *    auth0_issuer: 'https://ndustrial.auth0.com/'
- *    auth0_audience: '<my_client_id>'
+ *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth0({
+ *    issuer: 'https://ndustrial.auth0.com/'
+ *    audience: '<my_client_id>'
  *  });
  */
 
-var Auth = function(options) {
+var Auth0 = function(options) {
   /**
    * @property _options
    * @private
    * @type object
    */
   var _options = _.defaults(options, {
-    auth0_issuer: 'https://ndustrial.auth0.com/'
+    issuer: 'https://ndustrial.auth0.com/'
   });
 
-  if (!_.has(_options, 'auth0_audience')) {
-    throw new Error('auth0_audience must be provided!');
+  if (!_.has(_options, 'audience')) {
+    throw new Error('audience must be provided!');
   }
 
   /**
-   * Auth0 authorization middleware based on JWT.
+   * Authorization middleware based on JWT.
    *
    * @member authorize
    * @async
@@ -68,8 +68,8 @@ var Auth = function(options) {
     jwt({
       secret: rsaValidation(),
       algorithms: ['RS256'],
-      issuer: _options.auth0_issuer,
-      audience: _options.auth0_audience
+      issuer: _options.issuer,
+      audience: _options.audience
     })(req, res, next);
   };
 
@@ -78,4 +78,4 @@ var Auth = function(options) {
   };
 };
 
-module.exports = Auth;
+module.exports = Auth0;
