@@ -14,6 +14,8 @@ var request = require('request'),
  * @submodule permissions
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @since 0.2.0
+ * @beta
  * @example
  *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Permissions({
  *    definitions: {}

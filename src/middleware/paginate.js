@@ -10,10 +10,12 @@ var _ = require('underscore'),
  * @submodule paginate
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @since 0.2.0
+ * @beta
  * @example
  *  var paginate = require('contxt-sdk-nodejs').Sdk().middleware.Paginate({});
  */
- 
+
 var Paginate = function(options) {
   /**
    * @property _options

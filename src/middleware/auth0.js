@@ -14,6 +14,7 @@ var _ = require('underscore'),
  * @submodule auth0
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @since 0.2.0
  * @example
  *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth0({
  *    issuer: 'https://ndustrial.auth0.com/'
