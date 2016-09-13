@@ -74,7 +74,7 @@ var Sdk = function(options) {
     _options.redis_connection = redis_connection;
   }
 
-  config.set(_options);
+  config.init(_options);
 
   return {
     middleware: middleware,

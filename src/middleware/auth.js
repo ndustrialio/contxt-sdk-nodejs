@@ -15,6 +15,7 @@ var request = require('request'),
  * @submodule auth
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @deprecated Use `Sdk.middleware.Auth0` instead
  * @example
  *  var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth({
  *    service_url: 'test'
