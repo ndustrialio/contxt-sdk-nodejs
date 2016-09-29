@@ -8,6 +8,7 @@ var _ = require('underscore');
  * @submodule legacy
  * @main middleware
  * @namespace contxt-sdk-nodejs.sdk.middleware
+ * @since 0.3.0
  * @example
  *  var legacy = require('contxt-sdk-nodejs').Sdk().middleware.legacy;
  */
