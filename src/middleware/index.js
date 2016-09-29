@@ -7,6 +7,7 @@
 
 module.exports.cors = require('./cors');
 module.exports.handlers = require('./handlers');
+module.exports.legacy = require('./legacy');
 module.exports.Routers = require('./routers');
 module.exports.Auth = require('./auth');
 module.exports.Auth0 = require('./auth0');
