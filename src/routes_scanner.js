@@ -18,7 +18,7 @@ var fs = require('fs'),
  * @example
  *  var routes_scanner = require('contxt-sdk-nodejs').RoutesScanner({
  *    exclude: []
- *    controller_regex: /(["'])((?:(?=(?:\\)*)\\.|.)*?)\1/gm
+ *    controller_regex: /check\('([a-z.]+)'\)/g
  *  });
  */
 
@@ -29,31 +29,30 @@ var RoutesScanner = function(options) {
    * @type object
    */
   var _options = _.defaults(options, {
-    exclude: [],
-    controller_regex: /(["'])((?:(?=(?:\\)*)\\.|.)*?)\1/gm
+    exclude: []
   });
 
   /**
    * Read the routes directory and scan each file getting route definitions.
    *
    * @method scan
-   * @param {string} path - The path to scan for route definitions.
+   * @param {string} routes_path - The path to scan for route definitions.
    * @return {object} scope_definitions - The controllers defined on the routes.
    */
-  var scan = function(path) {
-    if (!_.isUndefined(path)) {
+  var scan = function(routes_path) {
+    if (_.isUndefined(routes_path)) {
       throw new Error('path must be provided!');
     }
 
     var scope_definitions = {},
-      routes = fs.readdirSync(path);
+      routes = fs.readdirSync(routes_path);
 
     routes.forEach(function(route) {
       var route_name = route.split('.')[0],
-        content = fs.readFileSync(path.join(path, route), 'utf-8'),
+        content = fs.readFileSync(path.join(routes_path, route), 'utf-8'),
         lines = content.replace(/\r\n|\n\r|\n|\r/g, '\n').split('\n');
 
-      if (_.has(_options.exclude, route_name)) {
+      if (_.contains(_options.exclude, route_name)) {
         return;
       }
 
@@ -61,22 +60,28 @@ var RoutesScanner = function(options) {
       scope_definitions['write:' + route_name] = [];
 
       lines.forEach(function(line) {
-        if (line.indexOf('router.') !== -1) {
-          // Assume the controller is the last matched element
-          var parts = line.match(_options.controller_regex),
-            controller = parts[parts.length - 1];
+        var match, controller;
 
-          // Remove quotes
-          controller = controller.substring(1);
-          controller = controller.substring(0, controller.length - 1);
-
-          if (line.indexOf('router.get') !== -1) {
-            scope_definitions['read:' + route_name].push(controller);
-          } else if (line.indexOf('router.post') !== -1 ||
-            line.indexOf('router.delete') !== -1 ||
-            line.indexOf('router.put') !== -1) {
-            scope_definitions['write:' + route_name].push(controller);
+        while ((match = _options.controller_regex.exec(line)) !== null) {
+          // This is necessary to avoid infinite loops with zero-width matches
+          if (match.index === _options.controller_regex.lastIndex) {
+            _options.controller_regex.lastIndex++;
           }
+
+          controller = match[1];
+        }
+
+        if (!controller) {
+          return;
+        }
+
+        // TODO: parameterize router.get, router.post, router.delete, and router.put
+        if (line.indexOf('router.get') !== -1) {
+          scope_definitions['read:' + route_name].push(controller);
+        } else if (line.indexOf('router.post') !== -1 ||
+          line.indexOf('router.delete') !== -1 ||
+          line.indexOf('router.put') !== -1) {
+          scope_definitions['write:' + route_name].push(controller);
         }
       });
     });
@@ -89,4 +94,4 @@ var RoutesScanner = function(options) {
   };
 };
 
-module.exports = RoutesScanner();
+module.exports = RoutesScanner;
