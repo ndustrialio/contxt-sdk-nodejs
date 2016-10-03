@@ -10,7 +10,8 @@ var fs = require('fs'),
  * @param {object} options - The options.
  * @param {array} options.exclude - List of routes to exclude.
  * @param {regex} options.controller_regex - Regex to match the controller.
- * @param {regex} options.writes_regex - Regex to group the write scopes.
+ * @param {array} options.reads_regex - Regex to group the read scopes.
+ * @param {array} options.writes_regex - Regex to group the write scopes.
  * @static
  * @module contxt
  * @submodule routescanner
