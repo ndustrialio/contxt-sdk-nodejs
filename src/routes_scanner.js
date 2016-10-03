@@ -17,6 +17,7 @@ var fs = require('fs'),
  * @submodule routescanner
  * @main contxt
  * @namespace contxt-sdk-nodejs
+ * @since 0.4.0
  * @example
  *  var routes_scanner = require('contxt-sdk-nodejs').RoutesScanner({
  *    exclude: [],
