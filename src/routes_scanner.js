@@ -10,6 +10,7 @@ var fs = require('fs'),
  * @param {object} options - The options.
  * @param {array} options.exclude - List of routes to exclude.
  * @param {regex} options.controller_regex - Regex to match the controller.
+ * @param {regex} options.writes_regex - Regex to group the write scopes.
  * @static
  * @module contxt
  * @submodule routescanner
@@ -17,8 +18,10 @@ var fs = require('fs'),
  * @namespace contxt-sdk-nodejs
  * @example
  *  var routes_scanner = require('contxt-sdk-nodejs').RoutesScanner({
- *    exclude: []
- *    controller_regex: /check\('([a-z.]+)'\)/g
+ *    exclude: [],
+ *    controller_regex: /check\('([a-z.]+)'\)/g,
+ *    reads_regex: [],
+ *    writes_regex: []
  *  });
  */
 
@@ -29,11 +32,24 @@ var RoutesScanner = function(options) {
    * @type object
    */
   var _options = _.defaults(options, {
-    exclude: []
+    exclude: [],
+    reads_regex: [
+      /router.get/g
+    ],
+    writes_regex: [
+      /router.post/g,
+      /router.put/g,
+      /router.delete/g
+    ]
   });
 
+  if (_.isUndefined(_options.controller_regex)) {
+    throw new Error('controller_regex must be provided!');
+  }
+
   /**
-   * Read the routes directory and scan each file getting route definitions.
+   * Does a line by line search for the files in the the routes directory and
+   * scans for controller paths.
    *
    * @method scan
    * @param {string} routes_path - The path to scan for route definitions.
@@ -75,14 +91,17 @@ var RoutesScanner = function(options) {
           return;
         }
 
-        // TODO: parameterize router.get, router.post, router.delete, and router.put
-        if (line.indexOf('router.get') !== -1) {
-          scope_definitions['read:' + route_name].push(controller);
-        } else if (line.indexOf('router.post') !== -1 ||
-          line.indexOf('router.delete') !== -1 ||
-          line.indexOf('router.put') !== -1) {
-          scope_definitions['write:' + route_name].push(controller);
-        }
+        _options.reads_regex.forEach(function(read_regex) {
+          if (line.match(read_regex) !== null) {
+            scope_definitions['read:' + route_name].push(controller);
+          }
+        });
+
+        _options.writes_regex.forEach(function(write_regex) {
+          if (line.match(write_regex) !== null) {
+            scope_definitions['write:' + route_name].push(controller);
+          }
+        });
       });
     });
 
