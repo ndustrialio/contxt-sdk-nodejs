@@ -158,20 +158,21 @@ var Permissions = function(options) {
         return next(new errors.server_error('Error - Permissions roles are unregistered or the server encountered an error retrieving roles from Contxt API Service'));
       }
 
-      var scope = _scopes_by_controller[controller_path];
+      var scopes = _scopes_by_controller[controller_path];
 
-      if (!scope) {
-        console.log('No scope for controller: ' + controller_path);
+      if (!scopes) {
+        console.log('No scopes for controller: ' + controller_path);
       } else {
-        console.log('Scopes: ' + scope);
+        console.log('Scopes: ' + scopes);
       }
 
       var allow = false;
 
-      if (req.user.sub.indexOf('@clients') != -1) { // this is a client_credentials grant
-        var scopes = req.user.scope.split(' ');
+      // This is a client_credentials grant
+      if (req.user.sub.indexOf('@clients') !== -1) {
+        var _scopes = req.user.scope.split(' ');
 
-        if (_.indexOf(scopes, scope[0]) != -1) {
+        if (_.indexOf(_scopes, scopes[0]) !== -1) {
           allow = true;
         }
       } else {
@@ -182,8 +183,8 @@ var Permissions = function(options) {
             console.log(_roles_map);
 
             if (role in _roles_map) {
-              _.each(_roles_map[role], function(aScope) {
-                if (scope == aScope) {
+              _.each(_roles_map[role], function(scope) {
+                if (_.contains(scopes, scope)) {
                   allow = true;
                 }
               });
@@ -194,7 +195,7 @@ var Permissions = function(options) {
 
       if (allow) {
         console.log('ALLOWED!!!!');
-        req.scope = scope;
+        req.scope = scopes;
         var fn = _controllers[controller][method];
 
         if (typeof fn === 'function') {
@@ -202,7 +203,7 @@ var Permissions = function(options) {
         }
       } else {
         console.log('~~~~ DENIED');
-        next(new errors.not_authorised('Access denied for scope ' + scope));
+        next(new errors.not_authorised('Access denied for scopes ' + scopes));
       }
     };
   };
