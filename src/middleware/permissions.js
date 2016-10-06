@@ -172,6 +172,7 @@ var Permissions = function(options) {
       if (req.user.sub.indexOf('@clients') !== -1) {
         var _scopes = req.user.scope.split(' ');
 
+        // TODO: Do a difference between the two scope arrays to accurately compoare scopes
         if (_.indexOf(_scopes, scopes[0]) !== -1) {
           allow = true;
         }
@@ -182,6 +183,7 @@ var Permissions = function(options) {
           _.each(req.user.user_metadata.roles, function(role) {
             console.log(_roles_map);
 
+            // TODO: Do a difference between the two scope arrays to accurately compoare scopes
             if (role in _roles_map) {
               _.each(_roles_map[role], function(scope) {
                 if (_.contains(scopes, scope)) {
