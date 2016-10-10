@@ -42,9 +42,9 @@ var Permissions = function(options) {
     throw new Error('Permissions middleware needs controllers map!');
   }
 
-  var _scopes_by_controller = {};
-  var _roles_map = {};
-  var _controllers = _options.controllers;
+  var _scopes_by_controller = {},
+    _roles_map = {},
+    _controllers = _options.controllers;
 
   _.map(_options.definitions, function(controllers, scope) {
     _.each(controllers, function(controller) {
@@ -76,8 +76,9 @@ var Permissions = function(options) {
 
       _get_service_scope_mappings(auth_token, function(err, results) {
         if (err) {
-          console.log('ERROR', err);
+          console.error(err);
         }
+
         console.log(results);
       });
     } else {
@@ -86,9 +87,6 @@ var Permissions = function(options) {
   });
 
   var _get_service_scope_mappings = function(bearer, callback) {
-    console.log('GETTING SERVICE SCOPES');
-    console.log(_config.contxt_url + 'clients/' + _config.client_id + '/init');
-
     request({
       url: _config.contxt_url + 'clients/' + _config.client_id + '/init',
       headers: {
@@ -96,8 +94,6 @@ var Permissions = function(options) {
       }
     }, function(err, response, body) {
       if (err) {
-        console.log(err);
-
         return callback(new errors.interservice_error('Unable to authorise request. Authentication service unavailable'));
       }
 
@@ -117,8 +113,6 @@ var Permissions = function(options) {
 
       _roles_map = result.role_mappings;
 
-      console.log('ROLES MAP', _roles_map);
-
       callback(null, result);
     });
   };
@@ -137,9 +131,9 @@ var Permissions = function(options) {
         grant_type: 'client_credentials'
       }
     }, function(error, response, body) {
-      if (error) throw new Error(error);
-
-      console.log(body);
+      if (error) {
+        throw new Error(error);
+      }
 
       config.set('contxt_token', JSON.parse(body).access_token);
     });
@@ -152,21 +146,12 @@ var Permissions = function(options) {
       needs_write_access = _.contains(['create', 'update', 'remove'], method);
 
     return function(req, res, next) {
-      console.log(req.user);
+      var scopes = _scopes_by_controller[controller_path],
+        allow = false;
 
       if (_.isEmpty(_roles_map)) {
         return next(new errors.server_error('Error - Permissions roles are unregistered or the server encountered an error retrieving roles from Contxt API Service'));
       }
-
-      var scopes = _scopes_by_controller[controller_path];
-
-      if (!scopes) {
-        console.log('No scopes for controller: ' + controller_path);
-      } else {
-        console.log('Scopes: ' + scopes);
-      }
-
-      var allow = false;
 
       // This is a client_credentials grant
       if (req.user.sub.indexOf('@clients') !== -1) {
@@ -181,8 +166,6 @@ var Permissions = function(options) {
           return next(new errors.not_authorised('User has not been assigned any roles.'));
         } else {
           _.each(req.user.user_metadata.roles, function(role) {
-            console.log(_roles_map);
-
             // TODO: Do a difference between the two scope arrays to accurately compoare scopes
             if (role in _roles_map) {
               _.each(_roles_map[role], function(scope) {
@@ -196,15 +179,14 @@ var Permissions = function(options) {
       }
 
       if (allow) {
-        console.log('ALLOWED!!!!');
-        req.scope = scopes;
         var fn = _controllers[controller][method];
+
+        req.scope = scopes;
 
         if (typeof fn === 'function') {
           fn(req, res, next);
         }
       } else {
-        console.log('~~~~ DENIED');
         next(new errors.not_authorised('Access denied for scopes ' + scopes));
       }
     };
