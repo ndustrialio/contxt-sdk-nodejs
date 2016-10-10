@@ -28,15 +28,16 @@ var Legacy = function() {
     var user_id = 1; // By default the `user_id` is set to the default superuser
 
     if (_.has(req, 'user') && _.has(req.user, 'sub')) {
-      if (_.isNumber(req.user.sub)) {
-        user_id = req.user.sub;
-      } else if (req.user.sub.indexOf('|') !== -1) {
+      if (req.user.sub.indexOf('auth0|') !== -1) {
         // The auth0 user id will most likely be formatted like: `auth0|123`
-        user_id = req.user.sub.split('|')[1];
+        var id = req.user.sub.split('|')[1];
+
+        if (_.isNumber(id)) {
+          user_id = id;
+        }
       }
     } else if (_.has(req, 'user') && _.has(req.user, 'id')) {
       // The legacy middleware sets the user id to `req.user.id`
-
       user_id = req.user.id;
     }
 
