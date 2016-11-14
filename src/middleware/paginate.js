@@ -5,6 +5,8 @@ var _ = require('underscore'),
  * @class Paginate
  * @constructor
  * @param {object} options - The options.
+ * @param {string} options.limit - The pagination limit.
+ * @param {string} options.offset - The pagination offset.
  * @static
  * @module middleware
  * @submodule paginate
