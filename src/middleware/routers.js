@@ -76,9 +76,29 @@ var Routers = function() {
     next();
   };
 
+  /**
+   * Add the "Authorization" header to each of the batch calls.
+   *
+   * @method batch_auth
+   * @async
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {function} next - Callback to execute the next Express middleware.
+   */
+  var batch_auth = function(req, res, next) {
+    _.each(req.body, function(value) {
+      value.headers = {
+        Authorization: req.headers.authorization
+      };
+    });
+
+    next();
+  };
+
   return {
     end: end,
-    body_cleanup: body_cleanup
+    body_cleanup: body_cleanup,
+    batch_auth: batch_auth
   };
 };
 
