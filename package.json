@@ -1,6 +1,6 @@
 {
   "name": "contxt-sdk-nodejs",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Library for common microservices functions",
   "main": "src/index.js",
   "scripts": {
