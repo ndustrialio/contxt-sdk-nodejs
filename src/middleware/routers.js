@@ -61,10 +61,9 @@ var Routers = function() {
               break;
 
             default:
-              var number_value = parseFloat(value);
-
-              if (number_value) {
-                items[key] = number_value;
+              // If string is a integer or float, convert to that type
+              if (/^-?\d*\.?\d+$/.test(value)) {
+                items[key] = parseFloat(value);
               }
           }
         }
