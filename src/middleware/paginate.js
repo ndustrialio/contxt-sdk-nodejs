@@ -65,8 +65,8 @@ var Paginate = function(options) {
       delete req.filters.orderBy;
     }
 
-    if (req.pagination.limit > 100) {
-      return next(new errors.validation_error('limit cannot be greater than 100'));
+    if (req.pagination.limit > _options.limit) {
+      return next(new errors.validation_error('limit cannot be greater than ' + _options.limit));
     }
 
     if (req.pagination.limit <= 0) {
