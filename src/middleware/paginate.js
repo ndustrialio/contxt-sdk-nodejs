@@ -64,6 +64,15 @@ var Paginate = function(options) {
 
       delete req.filters.orderBy;
     }
+    
+    if (_.has(req.filters, 'reverseOrder')) {
+      
+      if(req.filters.reverseOrder.toLowerCase() === 'true') {
+        req.pagination.isDescending = true;
+      }
+      
+      delete req.filters.reverseOrder;
+    }
 
     if (req.pagination.limit > _options.limit) {
       return next(new errors.validation_error('limit cannot be greater than ' + _options.limit));
