@@ -197,6 +197,24 @@ var Util = function() {
     return true;
   };
 
+  /**
+   * Determine right and left values for the tree.
+   *
+   * @method validate_part
+   */
+  var rebuild_tree_in_memory = function(parent, left) {
+    parent.lft = left;
+    parent.rgt = left + 1;
+
+    if (parent.children && parent.children.length > 0) {
+      parent.children.forEach(function(child) {
+        rebuild_tree_in_memory(child, parent.rgt);
+
+        parent.rgt = child.rgt + 1;
+      });
+    }
+  };
+
   return {
     array_to_dictionary: array_to_dictionary,
     array_to_tree: array_to_tree,
@@ -205,7 +223,8 @@ var Util = function() {
     get_node_children: get_node_children,
     order_tree: order_tree,
     is_dictionary: is_dictionary,
-    validate_part: validate_part
+    validate_part: validate_part,
+    rebuild_tree_in_memory: rebuild_tree_in_memory
   };
 };
 
