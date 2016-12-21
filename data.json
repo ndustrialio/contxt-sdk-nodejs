@@ -1,0 +1,2469 @@
+{
+    "project": {},
+    "files": {
+        "src/middleware/auth.js": {
+            "name": "src/middleware/auth.js",
+            "modules": {
+                "middleware": 1
+            },
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Auth": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/auth0.js": {
+            "name": "src/middleware/auth0.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Auth0": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/cors.js": {
+            "name": "src/middleware/cors.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Cors": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/handlers.js": {
+            "name": "src/middleware/handlers.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Handlers": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/index.js": {
+            "name": "src/middleware/index.js",
+            "modules": {
+                "sdk": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/legacy.js": {
+            "name": "src/middleware/legacy.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Legacy": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/notifier.js": {
+            "name": "src/middleware/notifier.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Notifier": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/paginate.js": {
+            "name": "src/middleware/paginate.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Paginate": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/permissions.js": {
+            "name": "src/middleware/permissions.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Permissions": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/middleware/routers.js": {
+            "name": "src/middleware/routers.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Routers": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            }
+        },
+        "src/config.js": {
+            "name": "src/config.js",
+            "modules": {
+                "contxt": 1
+            },
+            "classes": {
+                "contxt-sdk-nodejs.Config": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/errors.js": {
+            "name": "src/errors.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.Errors": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/index.js": {
+            "name": "src/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/listener.js": {
+            "name": "src/listener.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.Listener": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk": 1
+            }
+        },
+        "src/request.js": {
+            "name": "src/request.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.Request": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/routes_scanner.js": {
+            "name": "src/routes_scanner.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.RoutesScanner": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/sdk.js": {
+            "name": "src/sdk.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.Sdk": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        },
+        "src/util.js": {
+            "name": "src/util.js",
+            "modules": {},
+            "classes": {
+                "contxt-sdk-nodejs.Util": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            }
+        }
+    },
+    "modules": {
+        "middleware": {
+            "name": "middleware",
+            "submodules": {
+                "auth": 1,
+                "auth0": 1,
+                "cors": 1,
+                "handlers": 1,
+                "legacy": 1,
+                "notifier": 1,
+                "paginate": 1,
+                "permissions": 1,
+                "routes": 1
+            },
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Legacy": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Auth": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Auth0": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Cors": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Handlers": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Notifier": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Paginate": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Permissions": 1,
+                "contxt-sdk-nodejs.sdk.middleware.Routers": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "file": "src/middleware/routers.js",
+            "line": 4,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "service_url",
+                            "description": "- The OAuth2 service URL.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "TOKEN_CACHE_EXPIRES",
+                            "description": "- The expiration time of the auth token in seconds.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "tag": "main",
+            "itemtype": "main",
+            "module": "sdk"
+        },
+        "auth": {
+            "name": "auth",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Auth": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/auth.js",
+            "line": 7
+        },
+        "auth0": {
+            "name": "auth0",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Auth0": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/auth0.js",
+            "line": 6
+        },
+        "cors": {
+            "name": "cors",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Cors": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/cors.js",
+            "line": 1
+        },
+        "handlers": {
+            "name": "handlers",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Handlers": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/handlers.js",
+            "line": 4
+        },
+        "sdk": {
+            "name": "sdk",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.Listener": 1,
+                "contxt-sdk-nodejs.Sdk": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1,
+                "contxt-sdk-nodejs.sdk": 1,
+                "contxt-sdk-nodejs": 1
+            },
+            "file": "src/sdk.js",
+            "line": 9,
+            "tag": "main",
+            "itemtype": "main",
+            "module": "contxt",
+            "description": "Listen for messages on queue."
+        },
+        "legacy": {
+            "name": "legacy",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Legacy": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/legacy.js",
+            "line": 3
+        },
+        "notifier": {
+            "name": "notifier",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Notifier": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/notifier.js",
+            "line": 4
+        },
+        "paginate": {
+            "name": "paginate",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Paginate": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/paginate.js",
+            "line": 4
+        },
+        "permissions": {
+            "name": "permissions",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Permissions": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/permissions.js",
+            "line": 6
+        },
+        "routes": {
+            "name": "routes",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.sdk.middleware.Routers": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs.sdk.middleware": 1
+            },
+            "module": "middleware",
+            "namespace": "",
+            "file": "src/middleware/routers.js",
+            "line": 4
+        },
+        "contxt": {
+            "name": "contxt",
+            "submodules": {
+                "config": 1,
+                "request": 1,
+                "routescanner": 1,
+                "util": 1
+            },
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.Config": 1,
+                "contxt-sdk-nodejs.Errors": 1,
+                "contxt-sdk-nodejs.sdk.Listener": 1,
+                "contxt-sdk-nodejs.Request": 1,
+                "contxt-sdk-nodejs.RoutesScanner": 1,
+                "contxt-sdk-nodejs.Sdk": 1,
+                "contxt-sdk-nodejs.Util": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "contxt-sdk-nodejs": 1,
+                "contxt-sdk-nodejs.sdk": 1
+            },
+            "file": "src/util.js",
+            "line": 3,
+            "description": "Store and retrive configurations.",
+            "is_constructor": 1,
+            "static": 1,
+            "tag": "main",
+            "itemtype": "main"
+        },
+        "config": {
+            "name": "config",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.Config": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            },
+            "module": "contxt",
+            "namespace": "",
+            "description": "Store and retrive configurations.",
+            "file": "src/config.js",
+            "line": 1
+        },
+        "request": {
+            "name": "request",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.Request": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            },
+            "module": "contxt",
+            "namespace": "",
+            "description": "Allows to call remote services.",
+            "file": "src/request.js",
+            "line": 7
+        },
+        "routescanner": {
+            "name": "routescanner",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.RoutesScanner": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            },
+            "module": "contxt",
+            "namespace": "",
+            "description": "Generates scope definitions based on route files.",
+            "file": "src/routes_scanner.js",
+            "line": 5
+        },
+        "util": {
+            "name": "util",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "contxt-sdk-nodejs.Util": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "contxt-sdk-nodejs": 1
+            },
+            "module": "contxt",
+            "namespace": "",
+            "description": "Provides useful functions.",
+            "file": "src/util.js",
+            "line": 3
+        }
+    },
+    "classes": {
+        "contxt-sdk-nodejs.sdk.middleware.Auth": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/auth.js",
+            "line": 7,
+            "submodule": "auth",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "service_url",
+                            "description": "- The OAuth2 service URL.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "TOKEN_CACHE_EXPIRES",
+                            "description": "- The expiration time of the auth token in seconds.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "deprecated": true,
+            "deprecationMessage": "Use `Sdk.middleware.Auth0` instead",
+            "example": [
+                "\n var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth({\n   service_url: 'test'\n   TOKEN_CACHE_EXPIRES: 3600\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Auth0": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Auth0",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Auth0",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/auth0.js",
+            "line": 6,
+            "submodule": "auth0",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "issuer",
+                            "description": "- The issuer URL.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "audience",
+                            "description": "- The audience.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "since": "0.2.0",
+            "example": [
+                "\n var auth = require('contxt-sdk-nodejs').Sdk().middleware.Auth0({\n   issuer: 'https://ndustrial.auth0.com/'\n   audience: '<my_client_id>'\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Cors": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Cors",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Cors",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/cors.js",
+            "line": 1,
+            "submodule": "cors",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var cors = require('contxt-sdk-nodejs').Sdk().middleware.cors;"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Handlers": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Handlers",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Handlers",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/handlers.js",
+            "line": 4,
+            "submodule": "handlers",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var handlers = require('contxt-sdk-nodejs').Sdk().middleware.handlers;"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Legacy": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Legacy",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Legacy",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/legacy.js",
+            "line": 3,
+            "submodule": "legacy",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "since": "0.3.0",
+            "example": [
+                "\n var legacy = require('contxt-sdk-nodejs').Sdk().middleware.legacy;"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Notifier": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/notifier.js",
+            "line": 4,
+            "submodule": "notifier",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "exchange_name",
+                            "description": "- The RabbitMQ exchange to publish to.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var notifier = require('contxt-sdk-nodejs').Sdk().middleware.Notifier({exchange_name: 'test'});"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Paginate": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Paginate",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Paginate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/paginate.js",
+            "line": 4,
+            "submodule": "paginate",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "limit",
+                            "description": "- The pagination limit.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "offset",
+                            "description": "- The pagination offset.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "since": "0.2.0",
+            "beta": 1,
+            "example": [
+                "\n var paginate = require('contxt-sdk-nodejs').Sdk().middleware.Paginate({\n   limit: 10,\n   offset: 0\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Permissions": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Permissions",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Permissions",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/permissions.js",
+            "line": 6,
+            "submodule": "permissions",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "definitions",
+                            "description": "- The literal with scope mappings.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "controllers",
+                            "description": "- The reference to the controllers functions.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "since": "0.2.0",
+            "beta": 1,
+            "example": [
+                "\n var auth = require('contxt-sdk-nodejs').Sdk().middleware.Permissions({\n   definitions: {}\n   controllers: {}\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.middleware.Routers": {
+            "name": "contxt-sdk-nodejs.sdk.middleware.Routers",
+            "shortname": "contxt-sdk-nodejs.sdk.middleware.Routers",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "middleware",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware",
+            "file": "src/middleware/routers.js",
+            "line": 4,
+            "submodule": "routes",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "middleware",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var routers = require('contxt-sdk-nodejs').Sdk().middleware.Routers();"
+            ]
+        },
+        "contxt-sdk-nodejs.Config": {
+            "name": "contxt-sdk-nodejs.Config",
+            "shortname": "contxt-sdk-nodejs.Config",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/config.js",
+            "line": 1,
+            "description": "Store and retrive configurations.",
+            "submodule": "config",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                " var config = require('contxt-sdk-nodejs').config;"
+            ]
+        },
+        "contxt-sdk-nodejs.Errors": {
+            "name": "contxt-sdk-nodejs.Errors",
+            "shortname": "contxt-sdk-nodejs.Errors",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/errors.js",
+            "line": 3,
+            "description": "Useful error messages and codes.",
+            "is_constructor": 1,
+            "static": 1,
+            "example": [
+                " var errors = require('contxt-sdk-nodejs').errors;"
+            ]
+        },
+        "contxt-sdk-nodejs.sdk.Listener": {
+            "name": "contxt-sdk-nodejs.sdk.Listener",
+            "shortname": "contxt-sdk-nodejs.sdk.Listener",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs.sdk",
+            "file": "src/listener.js",
+            "line": 5,
+            "description": "Listen for messages on queue.",
+            "submodule": "sdk",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "queue_name",
+                            "description": "- RabbitMQ queue name to pull message from.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var listener = require('contxt-sdk-nodejs').Sdk().Listener({\n   queue_name: 'rabbitmq-queue'\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.Request": {
+            "name": "contxt-sdk-nodejs.Request",
+            "shortname": "contxt-sdk-nodejs.Request",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/request.js",
+            "line": 7,
+            "description": "Allows to call remote services.",
+            "submodule": "request",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object"
+                }
+            ],
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                " var request = require('contxt-sdk-nodejs').Request();"
+            ]
+        },
+        "contxt-sdk-nodejs.RoutesScanner": {
+            "name": "contxt-sdk-nodejs.RoutesScanner",
+            "shortname": "contxt-sdk-nodejs.RoutesScanner",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/routes_scanner.js",
+            "line": 5,
+            "description": "Generates scope definitions based on route files.",
+            "submodule": "routescanner",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- The options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "exclude",
+                            "description": "- List of routes to exclude.",
+                            "type": "Array"
+                        },
+                        {
+                            "name": "controller_regex",
+                            "description": "- Regex to match the controller.",
+                            "type": "Regex"
+                        },
+                        {
+                            "name": "reads_regex",
+                            "description": "- Regex to group the read scopes.",
+                            "type": "Array"
+                        },
+                        {
+                            "name": "writes_regex",
+                            "description": "- Regex to group the write scopes.",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "since": "0.4.0",
+            "example": [
+                "\n var routes_scanner = require('contxt-sdk-nodejs').RoutesScanner({\n   exclude: [],\n   controller_regex: /check\\('([a-z.]+)'\\)/g,\n   reads_regex: [],\n   writes_regex: []\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.Sdk": {
+            "name": "contxt-sdk-nodejs.Sdk",
+            "shortname": "contxt-sdk-nodejs.Sdk",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/sdk.js",
+            "line": 9,
+            "description": "Contains components that require configuration.",
+            "submodule": "sdk",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options stored and used by subcomponents.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "environment",
+                            "description": "- The environment loaded.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "rabbitmq_connection_string",
+                            "description": "- RabbitMQ conection string.",
+                            "type": "Object"
+                        },
+                        {
+                            "name": "redis_connection_string",
+                            "description": "- Redis conection string.",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                "\n var sdk = require('contxt-sdk-nodejs').Sdk({\n   environment: 'development',\n   rabbitmq_connection_string: 'amqp://0.0.0.0',\n   redis_connection_string: 'redis://0.0.0.0:6379/0'\n });"
+            ]
+        },
+        "contxt-sdk-nodejs.Util": {
+            "name": "contxt-sdk-nodejs.Util",
+            "shortname": "contxt-sdk-nodejs.Util",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs",
+            "file": "src/util.js",
+            "line": 3,
+            "description": "Provides useful functions.",
+            "submodule": "util",
+            "is_constructor": 1,
+            "static": 1,
+            "mainName": "contxt",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "example": [
+                " var util = require('contxt-sdk-nodejs').util;"
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/middleware/auth.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "module": "middleware",
+            "submodule": "auth",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth.js",
+            "line": 36,
+            "itemtype": "property",
+            "name": "_config",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "module": "middleware",
+            "submodule": "auth",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth.js",
+            "line": 43,
+            "itemtype": "property",
+            "name": "_redis_connection",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "module": "middleware",
+            "submodule": "auth",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth.js",
+            "line": 50,
+            "description": "Call the auth service and return the parsed results.",
+            "itemtype": "method",
+            "name": "_call_auth_service",
+            "async": 1,
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "bearer",
+                    "description": "- OAuth2 token bearer string.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "- Callback to execute when the response is parsed.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "module": "middleware",
+            "submodule": "auth",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth.js",
+            "line": 90,
+            "description": "Call an OAuth endpoint to authorize the request.",
+            "itemtype": "method",
+            "name": "authorize",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth",
+            "module": "middleware",
+            "submodule": "auth",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth0.js",
+            "line": 26,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth0",
+            "module": "middleware",
+            "submodule": "auth0",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/auth0.js",
+            "line": 39,
+            "description": "Authorization middleware based on JWT.",
+            "itemtype": "method",
+            "name": "authorize",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Auth0",
+            "module": "middleware",
+            "submodule": "auth0",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/cors.js",
+            "line": 15,
+            "description": "Header to setting up CORS.",
+            "itemtype": "method",
+            "name": "headers",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Cors",
+            "module": "middleware",
+            "submodule": "cors",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/handlers.js",
+            "line": 17,
+            "itemtype": "property",
+            "name": "_config",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Handlers",
+            "module": "middleware",
+            "submodule": "handlers",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/handlers.js",
+            "line": 24,
+            "description": "Handle errors.",
+            "itemtype": "method",
+            "name": "errors",
+            "async": 1,
+            "params": [
+                {
+                    "name": "err",
+                    "description": "- The forwarded error object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Handlers",
+            "module": "middleware",
+            "submodule": "handlers",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/legacy.js",
+            "line": 18,
+            "description": "Set up user data on the req object.",
+            "itemtype": "method",
+            "name": "user",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Legacy",
+            "module": "middleware",
+            "submodule": "legacy",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/notifier.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "_config",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "module": "middleware",
+            "submodule": "notifier",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/notifier.js",
+            "line": 26,
+            "itemtype": "property",
+            "name": "environment",
+            "access": "private",
+            "tagname": "",
+            "type": "string",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "module": "middleware",
+            "submodule": "notifier",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/notifier.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "rabbitmq_connection",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "module": "middleware",
+            "submodule": "notifier",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/notifier.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "exchange",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "module": "middleware",
+            "submodule": "notifier",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/notifier.js",
+            "line": 57,
+            "description": "Publish message over RabbitMQ exchange.",
+            "itemtype": "method",
+            "name": "notify",
+            "async": 1,
+            "params": [
+                {
+                    "name": "routing_key",
+                    "description": "- The routing key for the exchange.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "anonymous - Anonymous function reference to be executed by the middleware.",
+                "type": "Function"
+            },
+            "class": "contxt-sdk-nodejs.sdk.middleware.Notifier",
+            "module": "middleware",
+            "submodule": "notifier",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/paginate.js",
+            "line": 25,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Paginate",
+            "module": "middleware",
+            "submodule": "paginate",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/paginate.js",
+            "line": 35,
+            "description": "Handle pagination based on req values.",
+            "itemtype": "method",
+            "name": "paginate",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Paginate",
+            "module": "middleware",
+            "submodule": "paginate",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/permissions.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Permissions",
+            "module": "middleware",
+            "submodule": "permissions",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/permissions.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "_config",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.middleware.Permissions",
+            "module": "middleware",
+            "submodule": "permissions",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/routers.js",
+            "line": 18,
+            "description": "End an Express request.",
+            "itemtype": "method",
+            "name": "end",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Routers",
+            "module": "middleware",
+            "submodule": "routes",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/routers.js",
+            "line": 35,
+            "description": "Convert boolean, null, and number values to true type.",
+            "itemtype": "method",
+            "name": "body_cleanup",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Routers",
+            "module": "middleware",
+            "submodule": "routes",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/middleware/routers.js",
+            "line": 78,
+            "description": "Add the \"Authorization\" header to each of the batch calls.",
+            "itemtype": "method",
+            "name": "batch_auth",
+            "async": 1,
+            "params": [
+                {
+                    "name": "req",
+                    "description": "- Express request object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "res",
+                    "description": "- Express response object.",
+                    "type": "Object"
+                },
+                {
+                    "name": "next",
+                    "description": "- Callback to execute the next Express middleware.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.middleware.Routers",
+            "module": "middleware",
+            "submodule": "routes",
+            "namespace": "contxt-sdk-nodejs.sdk.middleware"
+        },
+        {
+            "file": "src/config.js",
+            "line": 15,
+            "itemtype": "property",
+            "name": "_configs",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.Config",
+            "module": "contxt",
+            "submodule": "config",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/config.js",
+            "line": 22,
+            "description": "Set All configurations at once (overwriting existing ones as well)",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "- The configuration object.",
+                    "type": "Object"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Config",
+            "module": "contxt",
+            "submodule": "config",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/config.js",
+            "line": 32,
+            "description": "Set configurations with new value.",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "- The key",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "- The value",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Config",
+            "module": "contxt",
+            "submodule": "config",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/config.js",
+            "line": 43,
+            "description": "Get configurations.",
+            "itemtype": "method",
+            "name": "get",
+            "return": {
+                "description": "_configs",
+                "type": "Object"
+            },
+            "class": "contxt-sdk-nodejs.Config",
+            "module": "contxt",
+            "submodule": "config",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 16,
+            "itemtype": "method",
+            "name": "not_found",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 27,
+            "itemtype": "method",
+            "name": "no_content",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 38,
+            "itemtype": "method",
+            "name": "not_implemented",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 49,
+            "itemtype": "method",
+            "name": "not_authorised",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 60,
+            "itemtype": "method",
+            "name": "bad_request",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 71,
+            "itemtype": "method",
+            "name": "server_error",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 82,
+            "itemtype": "method",
+            "name": "validation_error",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                },
+                {
+                    "name": "path",
+                    "description": "- Path.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 101,
+            "itemtype": "method",
+            "name": "interservice_error",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/errors.js",
+            "line": 112,
+            "itemtype": "method",
+            "name": "conflict_error",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "- Message.",
+                    "type": "String"
+                },
+                {
+                    "name": "path",
+                    "description": "- Path.",
+                    "type": "String"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Errors",
+            "module": "contxt",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "_config",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 31,
+            "itemtype": "property",
+            "name": "environment",
+            "access": "private",
+            "tagname": "",
+            "type": "string",
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 38,
+            "itemtype": "property",
+            "name": "connection",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "queues",
+            "access": "private",
+            "tagname": "",
+            "type": "array",
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 52,
+            "description": "Call a callback when the RabbitMQ connection is ready.",
+            "itemtype": "method",
+            "name": "_ready",
+            "access": "private",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 73,
+            "description": "Bind the queue to the exchange with the routing key.",
+            "itemtype": "method",
+            "name": "_create_binding",
+            "access": "private",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "queue",
+                    "description": "- RabbitMQ queue.",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "routing_key",
+                            "description": "- The routing key.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "queue_name",
+                            "description": "- The queue name.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "exchange_name",
+                            "description": "- The exchange name.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/listener.js",
+            "line": 109,
+            "description": "Listen for messages on queue.",
+            "itemtype": "method",
+            "name": "listen",
+            "async": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "routing_key",
+                            "description": "- The routing key.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "queue_name",
+                            "description": "- The queue name.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "exchange_name",
+                            "description": "- The exchange name.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.sdk.Listener",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs.sdk"
+        },
+        {
+            "file": "src/request.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "RETRY_TIMES",
+            "access": "private",
+            "tagname": "",
+            "type": "integer",
+            "final": 1,
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 37,
+            "itemtype": "property",
+            "name": "RETRY_INTERVAL",
+            "access": "private",
+            "tagname": "",
+            "type": "integer",
+            "final": 1,
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "request",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 56,
+            "description": "Prepare url.",
+            "itemtype": "method",
+            "name": "_prepare_url",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "query",
+                            "description": "- URL query params.",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "url - The callback that handles the response.",
+                "type": "String"
+            },
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 84,
+            "description": "Prepare params.",
+            "itemtype": "method",
+            "name": "_prepare_params",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "query",
+                            "description": "- URL query params.",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "params - The callback that handles the response.",
+                "type": "Object"
+            },
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 119,
+            "description": "Makes a GET call.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "query",
+                            "description": "- URL query params.",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 163,
+            "description": "Makes a POST call.",
+            "itemtype": "method",
+            "name": "post",
+            "async": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "data",
+                            "description": "- Data to be posted.",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 208,
+            "description": "Makes a PUT call.",
+            "itemtype": "method",
+            "name": "put",
+            "async": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "data",
+                            "description": "- Data to be posted.",
+                            "type": "Object[]"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/request.js",
+            "line": 253,
+            "description": "Makes a DELETE call.",
+            "itemtype": "method",
+            "name": "del",
+            "async": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "- Options.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "- The URL to call.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "token",
+                            "description": "- OAuth2 token.",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "callback",
+                    "description": "- The callback that handles the response.",
+                    "type": "Function"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Request",
+            "module": "contxt",
+            "submodule": "request",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/routes_scanner.js",
+            "line": 31,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.RoutesScanner",
+            "module": "contxt",
+            "submodule": "routescanner",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/routes_scanner.js",
+            "line": 52,
+            "description": "Does a line by line search for the files in the the routes directory and\nscans for controller paths.",
+            "itemtype": "method",
+            "name": "scan",
+            "params": [
+                {
+                    "name": "routes_path",
+                    "description": "- The path to scan for route definitions.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "scope_definitions - The controllers defined on the routes.",
+                "type": "Object"
+            },
+            "class": "contxt-sdk-nodejs.RoutesScanner",
+            "module": "contxt",
+            "submodule": "routescanner",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/sdk.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "_options",
+            "access": "private",
+            "tagname": "",
+            "type": "object",
+            "class": "contxt-sdk-nodejs.Sdk",
+            "module": "contxt",
+            "submodule": "sdk",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 18,
+            "description": "Transform an array to an object.",
+            "itemtype": "method",
+            "name": "array_to_dictionary",
+            "params": [
+                {
+                    "name": "results",
+                    "description": "- The array to be transformed.",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "result - The transformed dictionary.",
+                "type": "Object"
+            },
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 31,
+            "description": "Transform an array to a tree.",
+            "itemtype": "method",
+            "name": "array_to_tree",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "- The array to be transformed.",
+                    "type": "Array"
+                },
+                {
+                    "name": "parent",
+                    "description": "- The parent node.",
+                    "type": "Object"
+                },
+                {
+                    "name": "first",
+                    "description": "- Used by the recursive function.",
+                    "type": "Object"
+                },
+                {
+                    "name": "picked_fields",
+                    "description": "- Fields from the tree to be in the final result.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "tree - The transformed tree.",
+                "type": "Object"
+            },
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 70,
+            "description": "Transform a tree to a multidimensional array.",
+            "itemtype": "method",
+            "name": "tree_to_array",
+            "params": [
+                {
+                    "name": "node",
+                    "description": "- The tree node to start from.",
+                    "type": "Object"
+                },
+                {
+                    "name": "array",
+                    "description": "- Required for recursive function.",
+                    "type": "Array"
+                },
+                {
+                    "name": "array",
+                    "description": "- The tree flattened into an array.",
+                    "type": "Array"
+                }
+            ],
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 99,
+            "description": "Returns the node parent of the provided tree.",
+            "itemtype": "method",
+            "name": "get_node_parent",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 116,
+            "description": "Returns the children nodes of the provided node.",
+            "itemtype": "method",
+            "name": "get_node_children",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 134,
+            "description": "Order tree.",
+            "itemtype": "method",
+            "name": "order_tree",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 153,
+            "description": "Checks for the input to be an object literal.",
+            "itemtype": "method",
+            "name": "is_dictionary",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 174,
+            "description": "Validation.",
+            "itemtype": "method",
+            "name": "validate_part",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        },
+        {
+            "file": "src/util.js",
+            "line": 200,
+            "description": "Determine right and left values for the tree.",
+            "itemtype": "method",
+            "name": "validate_part",
+            "class": "contxt-sdk-nodejs.Util",
+            "module": "contxt",
+            "submodule": "util",
+            "namespace": "contxt-sdk-nodejs"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/auth.js:50"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/auth.js:90"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/auth0.js:39"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/cors.js:15"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/handlers.js:24"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/legacy.js:18"
+        },
+        {
+            "message": "replacing incorrect tag: member with method",
+            "line": " src/middleware/paginate.js:35"
+        }
+    ]
+}

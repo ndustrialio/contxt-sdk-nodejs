@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/request.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/contxt-sdk-nodejs.Config.html">contxt-sdk-nodejs.Config</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.Errors.html">contxt-sdk-nodejs.Errors</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.Request.html">contxt-sdk-nodejs.Request</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.RoutesScanner.html">contxt-sdk-nodejs.RoutesScanner</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.Sdk.html">contxt-sdk-nodejs.Sdk</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.Listener.html">contxt-sdk-nodejs.sdk.Listener</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Auth.html">contxt-sdk-nodejs.sdk.middleware.Auth</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Auth0.html">contxt-sdk-nodejs.sdk.middleware.Auth0</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Cors.html">contxt-sdk-nodejs.sdk.middleware.Cors</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Handlers.html">contxt-sdk-nodejs.sdk.middleware.Handlers</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Legacy.html">contxt-sdk-nodejs.sdk.middleware.Legacy</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Notifier.html">contxt-sdk-nodejs.sdk.middleware.Notifier</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Paginate.html">contxt-sdk-nodejs.sdk.middleware.Paginate</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Permissions.html">contxt-sdk-nodejs.sdk.middleware.Permissions</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.sdk.middleware.Routers.html">contxt-sdk-nodejs.sdk.middleware.Routers</a></li>
+                                <li><a href="../classes/contxt-sdk-nodejs.Util.html">contxt-sdk-nodejs.Util</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/auth.html">auth</a></li>
+                                <li><a href="../modules/auth0.html">auth0</a></li>
+                                <li><a href="../modules/config.html">config</a></li>
+                                <li><a href="../modules/contxt.html">contxt</a></li>
+                                <li><a href="../modules/cors.html">cors</a></li>
+                                <li><a href="../modules/handlers.html">handlers</a></li>
+                                <li><a href="../modules/legacy.html">legacy</a></li>
+                                <li><a href="../modules/middleware.html">middleware</a></li>
+                                <li><a href="../modules/notifier.html">notifier</a></li>
+                                <li><a href="../modules/paginate.html">paginate</a></li>
+                                <li><a href="../modules/permissions.html">permissions</a></li>
+                                <li><a href="../modules/request.html">request</a></li>
+                                <li><a href="../modules/routes.html">routes</a></li>
+                                <li><a href="../modules/routescanner.html">routescanner</a></li>
+                                <li><a href="../modules/sdk.html">sdk</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/request.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+var _ = require(&#x27;underscore&#x27;),
+  qs = require(&#x27;qs&#x27;),
+  async = require(&#x27;async&#x27;),
+  _Request = require(&#x27;request&#x27;),
+  errors = require(&#x27;./errors&#x27;);
+
+/**
+ * Allows to call remote services.
+ *
+ * @class Request
+ * @constructor
+ * @param {object} options - The options.
+ * @static
+ * @module contxt
+ * @submodule request
+ * @main contxt
+ * @namespace contxt-sdk-nodejs
+ * @example var request = require(&#x27;contxt-sdk-nodejs&#x27;).Request();
+ */
+
+var Request = function(default_options) {
+  /**
+   * @property _options
+   * @private
+   * @type object
+   */
+  var _options = _.defaults(default_options, {});
+
+  /**
+   * @property RETRY_TIMES
+   * @private
+   * @type integer
+   * @final
+   */
+  var RETRY_TIMES = 3;
+
+  /**
+   * @property RETRY_INTERVAL
+   * @private
+   * @type integer
+   * @final
+   */
+  var RETRY_INTERVAL = 200;
+
+  /**
+   * @property request
+   * @private
+   * @type object
+   */
+  var request = _Request.defaults({
+    headers: {
+      something: &#x27;something&#x27;
+    }
+  });
+
+  /**
+   * Prepare url.
+   *
+   * @method _prepare_url
+   * @private
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @return {string} url - The callback that handles the response.
+   */
+  var _prepare_url = function(options) {
+    // TODO: Check for the URL to be set on options
+    var _url = options.url;
+
+    if (_.has(_options, &#x27;base_url&#x27;)) {
+      _url = base_url + url;
+    }
+
+    if (_.has(options, &#x27;query&#x27;)) {
+      var query = qs.stringify(options.query);
+
+      _url += &#x27;?&#x27; + query;
+    }
+
+    return _url;
+  };
+
+  /**
+   * Prepare params.
+   *
+   * @method _prepare_params
+   * @private
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @return {object} params - The callback that handles the response.
+   */
+  var _prepare_params = function(options) {
+    var _url = _prepare_url(options);
+
+    var params = {
+      url: _url
+    };
+
+    if (_.has(options, &#x27;data&#x27;)) {
+      _.extend(params, {
+        form: options.data
+      });
+    }
+
+    if (_.has(options, &#x27;token&#x27;)) {
+      _.extend(params, {
+        auth: {
+          bearer: options.token
+        }
+      });
+    }
+
+    return params;
+  };
+
+  /**
+   * Makes a GET call.
+   *
+   * @method get
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.query - URL query params.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
+  var get = function(options, callback) {
+    var params = _prepare_params(options);
+
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      console.log(&#x27;Calling GET (&#x27;, params.url, &#x27;) with&#x27;, params.form ?
+        params.form : &#x27;no payload&#x27;);
+
+      request.get(params, function(error, response, body) {
+        if (error) {
+          console.log(&#x27;Failed calling (&#x27;, params.url, &#x27;). Retrying...&#x27;);
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      });
+    }, function(error, result) {
+      if (error) {
+        return callback(error);
+      }
+
+      if (result.response.statusCode !== 200) {
+        return callback(new errors.interservice_error(&#x27;Unable to GET &#x27; +
+          params.url + &#x27; - status code: &#x27; + result.response.statusCode));
+      }
+
+      callback(null, JSON.parse(result.body));
+    });
+  };
+
+  /**
+   * Makes a POST call.
+   *
+   * @method post
+   * @async
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.data - Data to be posted.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
+  var post = function(options, callback) {
+    var params = _prepare_params(options);
+
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      console.log(&#x27;Calling POST (&#x27;, params.url, &#x27;) with&#x27;, params.form ?
+        params.form : &#x27;no payload&#x27;);
+
+      request.post(params, function(error, response, body) {
+        if (error) {
+          console.log(&#x27;Failed calling (&#x27;, params.url, &#x27;). Retrying...&#x27;);
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      });
+    }, function(error, result) {
+      if (error) {
+        return callback(error);
+      }
+
+      if (!_.contains([200, 201], result.response.statusCode)) {
+        return callback(new errors.interservice_error(&#x27;Unable to POST &#x27; +
+          params.url + &#x27; - status code: &#x27; + result.response.statusCode));
+      }
+
+      callback(null, JSON.parse(result.body));
+    });
+  };
+
+  /**
+   * Makes a PUT call.
+   *
+   * @method put
+   * @async
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {object[]} options.data - Data to be posted.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
+  var put = function(options, callback) {
+    var params = _prepare_params(options);
+
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      console.log(&#x27;Calling PUT (&#x27;, params.url, &#x27;) with&#x27;, params.form ?
+        params.form : &#x27;no payload&#x27;);
+
+      request.put(params, function(error, response, body) {
+        if (error) {
+          console.log(&#x27;Failed calling (&#x27;, params.url, &#x27;). Retrying...&#x27;);
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      });
+    }, function(error, result) {
+      if (error) {
+        return callback(error);
+      }
+
+      if (!_.contains([200, 204], result.response.statusCode)) {
+        return callback(new errors.interservice_error(&#x27;Unable to PUT &#x27; +
+          params.url + &#x27; - status code: &#x27; + result.response.statusCode));
+      }
+
+      callback(null, JSON.parse(result.body));
+    });
+  };
+
+  /**
+   * Makes a DELETE call.
+   *
+   * @method del
+   * @async
+   * @param {object} options - Options.
+   * @param {string} options.url - The URL to call.
+   * @param {string} options.token - OAuth2 token.
+   * @param {function} callback - The callback that handles the response.
+   */
+  var del = function(options, callback) {
+    var params = _prepare_params(options);
+
+    async.retry({
+      times: RETRY_TIMES,
+      interval: RETRY_INTERVAL
+    }, function(cb) {
+      console.log(&#x27;Calling DELETE (&#x27;, params.url, &#x27;) with&#x27;, params.form ?
+        params.form : &#x27;no payload&#x27;);
+
+      request.del(params, function(error, response, body) {
+        if (error) {
+          console.log(&#x27;Failed calling (&#x27;, params.url, &#x27;). Retrying...&#x27;);
+        }
+
+        cb(error, {
+          response: response,
+          body: body
+        });
+      });
+    }, function(error, result) {
+      if (error) {
+        return callback(error);
+      }
+
+      if (!_.contains([200, 204], result.response.statusCode)) {
+        return callback(new errors.interservice_error(&#x27;Unable to DELETE &#x27; +
+          params.url + &#x27; - status code: &#x27; + result.response.statusCode));
+      }
+
+      callback(null, JSON.parse(result.body));
+    });
+  };
+
+  return {
+    get: get,
+    post: post,
+    put: put,
+    del: del
+  };
+};
+
+module.exports = Request;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
