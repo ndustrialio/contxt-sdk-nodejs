@@ -4,6 +4,7 @@ var _ = require('underscore'),
   config = require('./config'),
   errors = require('./errors'),
   middleware = require('./middleware'),
+  helpers = require('./helpers'),
   Listener = require('./listener');
 
 /**
@@ -78,6 +79,7 @@ var Sdk = function(options) {
 
   return {
     middleware: middleware,
+    helpers: helpers,
     Listener: Listener
   };
 };
