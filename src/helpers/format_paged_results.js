@@ -12,7 +12,7 @@
 
 var format_paged_results = function(paginationObj, count, records) {
     return {
-      '_meta': {
+      '_metadata': {
         totalRecords: parseInt(count),
         'offset': parseInt(paginationObj['offset'])
       },
