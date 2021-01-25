@@ -19,7 +19,7 @@
   "dependencies": {
     "amqp": "^0.2.4",
     "async": "^3.2.0",
-    "qs": "^5.2.0",
+    "qs": "^6.0.4",
     "redis": "^2.5.3",
     "request": "^2.65.0",
     "underscore": "^1.8.3",
