@@ -18,8 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "amqp": "^0.2.4",
-    "async": "^1.5.0",
-    "hiredis": "^0.4.1",
+    "async": "^3.2.0",
     "qs": "^5.2.0",
     "redis": "^2.5.3",
     "request": "^2.65.0",
